@@ -4,3 +4,7 @@ export * from './wec-button/wec-button.js';
 export * from './wec-checkbox/wec-checkbox.js';
 export * from './wec-icon/wec-icon.js';
 export * from './wec-input/wec-input.js';
+export * from './wec-radio-group/wec-radio-group.js';
+export * from './wec-select/wec-select.js';
+export * from './wec-switch/wec-switch.js';
+export * from './wec-textarea/wec-textarea.js';

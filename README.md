@@ -4,14 +4,14 @@ Design system internal berbasis **Web Components (Lit 3)** dengan pola **Atomic 
 Dipakai lintas **Angular ≥ 18, React (latest & latest-1), Next.js ≥ 14 (App Router), dan
 Drupal 10/11**. Rencana lengkap: lihat [`PLAN.md`](./PLAN.md).
 
-## Status: Fase 1 — MVP design system ✅
+## Status: Fase 2 — Perluasan ✅
 
-**Atoms**: `wec-button`, `wec-input`, `wec-icon`, `wec-badge`, `wec-checkbox` ·
-**Molecules**: `wec-form-field`, `wec-card` — lengkap dengan docs (Storybook MDX),
-test unit (Vitest), dan wrapper `@wec-ui/react` yang digenerate otomatis dari
-Custom Elements Manifest. Verifikasi interaksi/event komponen memakai panel
-**Actions** di Storybook. Fase 0 (fondasi monorepo, token, tooling) selesai
-sebelumnya.
+**Atoms**: `wec-button`, `wec-input`, `wec-textarea`, `wec-select`, `wec-checkbox`,
+`wec-switch`, `wec-radio-group`, `wec-icon`, `wec-badge` ·
+**Molecules**: `wec-form-field`, `wec-card` — dengan docs Storybook (MDX), test unit
+(Vitest), wrapper **`@wec-ui/react`** + **`@wec-ui/angular`** (digenerate dari CEM),
+paket **Drupal** (`type: drupal-library`), dan audit aksesibilitas (lihat
+[`A11Y.md`](./A11Y.md)). Fase 0 (fondasi) & Fase 1 (MVP) selesai sebelumnya.
 
 ## Struktur
 
@@ -19,9 +19,13 @@ sebelumnya.
 wec-ui/
 ├─ packages/core/        # "wec-ui" — komponen Lit murni (atoms/molecules/organisms)
 ├─ packages/react/       # "@wec-ui/react" — wrapper React, digenerate dari CEM
+├─ packages/angular/     # "@wec-ui/angular" — wrapper Angular, digenerate dari CEM
+├─ packages/drupal/      # artifact paket drupal-library (digenerate, gitignored)
 ├─ tokens/               # tokens.json → Style Dictionary → build/tokens.css (light+dark)
 ├─ tools/icons/          # SVG dari tim desain → generator registry TS
-├─ tools/generate-wrappers/  # generator wrapper React dari custom-elements.json
+├─ tools/generate-wrappers/  # generator wrapper React + Angular dari CEM
+├─ tools/package-drupal/ # assembler paket Drupal
+├─ A11Y.md               # audit aksesibilitas
 └─ PLAN.md               # rencana implementasi per fase
 ```
 
@@ -32,19 +36,21 @@ wec-ui/
 
 ## Perintah utama (dari root repo)
 
-| Perintah            | Fungsi                                                  |
-| ------------------- | ------------------------------------------------------- |
-| `pnpm install`      | Pasang dependensi semua workspace                       |
-| `pnpm dev`          | Jalankan Storybook (`localhost:6006`)                   |
-| `pnpm build`        | Build tokens → ikon → core (ESM + CEM) → wrapper React  |
-| `pnpm test`         | Unit test (Vitest: node + happy-dom)                    |
-| `pnpm lint`         | ESLint                                                  |
-| `pnpm format`       | Prettier (tulis)                                        |
-| `pnpm typecheck`    | `tsc --noEmit` semua package                            |
-| `pnpm build:tokens` | Regenerate `tokens/build/tokens.css` dari `tokens.json` |
-| `pnpm build:icons`  | Regenerate registry ikon dari `tools/icons/svg/*.svg`   |
-| `pnpm gen:wrappers` | Regenerate `@wec-ui/react` dari `custom-elements.json`  |
-| `pnpm changeset`    | Catat perubahan (changelog internal, fixed version)     |
+| Perintah                    | Fungsi                                                  |
+| --------------------------- | ------------------------------------------------------- |
+| `pnpm install`              | Pasang dependensi semua workspace                       |
+| `pnpm dev`                  | Jalankan Storybook (`localhost:6006`)                   |
+| `pnpm build`                | Build tokens → ikon → core (ESM + CEM) → wrapper React  |
+| `pnpm test`                 | Unit test (Vitest: node + happy-dom)                    |
+| `pnpm lint`                 | ESLint                                                  |
+| `pnpm format`               | Prettier (tulis)                                        |
+| `pnpm typecheck`            | `tsc --noEmit` semua package                            |
+| `pnpm build:tokens`         | Regenerate `tokens/build/tokens.css` dari `tokens.json` |
+| `pnpm build:icons`          | Regenerate registry ikon dari `tools/icons/svg/*.svg`   |
+| `pnpm gen:wrappers`         | Regenerate `@wec-ui/react` dari `custom-elements.json`  |
+| `pnpm gen:wrappers:angular` | Regenerate `@wec-ui/angular` dari CEM                   |
+| `pnpm package:drupal`       | Assemble paket Drupal ke `packages/drupal/wec_ui/`      |
+| `pnpm changeset`            | Catat perubahan (changelog internal, fixed version)     |
 
 > Interaksi & event komponen diverifikasi lewat panel **Actions** di Storybook.
 

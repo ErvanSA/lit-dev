@@ -9,19 +9,22 @@ lintas **Angular ≥ 18, React, Next.js ≥ 14 (App Router), dan Drupal 10/11**.
 
 ## Status
 
-✅ **Fase 0 — Fondasi** dan **Fase 1 — MVP** selesai. Komponen tersedia:
-`wec-button`, `wec-input`, `wec-checkbox`, `wec-icon`, `wec-badge` (atoms) dan
-`wec-form-field`, `wec-card` (molecules) — dengan wrapper `@wec-ui/react`,
-docs MDX per framework, dan test lengkap. Rencana lanjut: **Fase 2**
-(generator Angular, komponen lanjutan, audit a11y + visual regression).
+✅ **Fase 0 — Fondasi**, **Fase 1 — MVP**, dan **Fase 2 — Perluasan** selesai.
+Komponen: `wec-button`, `wec-input`, `wec-textarea`, `wec-select`, `wec-checkbox`,
+`wec-switch`, `wec-radio-group`, `wec-icon`, `wec-badge` (atoms) dan
+`wec-form-field`, `wec-card` (molecules) — dengan wrapper `@wec-ui/react` +
+`@wec-ui/angular`, paket Drupal, docs MDX per framework, dan audit aksesibilitas
+(A11Y.md). Rencana lanjut: **Fase 3** (infra GitLab, publishing registry,
+eksperimen SSR) serta komponen overlay (`tabs`, `modal`, `tooltip`) sesuai
+kebutuhan konsumen.
 
 ## Struktur komponen
 
-| Level     | Komponen                                                                  | Status    |
-| --------- | ------------------------------------------------------------------------- | --------- |
-| Atoms     | `wec-button`, `wec-input`, `wec-checkbox`, `wec-icon`, `wec-badge`        | ✅ Fase 1 |
-| Molecules | `wec-form-field`, `wec-card`                                              | ✅ Fase 1 |
-| Lanjutan  | `select`, `textarea`, `radio-group`, `switch`, `tabs`, `modal`, `tooltip` | Fase 2    |
+| Level     | Komponen                                                                                                                          | Status                    |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Atoms     | `wec-button`, `wec-input`, `wec-textarea`, `wec-select`, `wec-checkbox`, `wec-switch`, `wec-radio-group`, `wec-icon`, `wec-badge` | ✅ Fase 1–2               |
+| Molecules | `wec-form-field`, `wec-card`                                                                                                      | ✅ Fase 1                 |
+| Lanjutan  | `tabs`, `modal`, `tooltip`                                                                                                        | sesuai kebutuhan konsumen |
 
 ## Tema (theming)
 

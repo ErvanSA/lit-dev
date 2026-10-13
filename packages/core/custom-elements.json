@@ -69,6 +69,30 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/define/wec-radio-group.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-select.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-switch.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-textarea.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/atoms/index.ts",
       "declarations": [],
       "exports": [
@@ -118,6 +142,38 @@
           "declaration": {
             "name": "*",
             "module": "src/components/atoms/wec-input/wec-input.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-radio-group/wec-radio-group.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-select/wec-select.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-switch/wec-switch.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-textarea/wec-textarea.js"
           }
         }
       ]
@@ -1114,6 +1170,960 @@
           "declaration": {
             "name": "WecInput",
             "module": "src/components/atoms/wec-input/wec-input.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-radio-group/wec-radio-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Grup radio — membungkus radio native yang di-slot (navigasi panah\ndikerjakan browser secara native, tetap aksesibel).",
+          "name": "WecRadioGroup",
+          "cssParts": [
+            {
+              "description": "Wadah `role=\"radiogroup\"`.",
+              "name": "group"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Elemen `<input type=\"radio\">` native (satu `name` sama).",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "description": "Nilai radio terpilih (set → mencentang radio bernilai sama)."
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Nonaktifkan semua radio berslot.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "labelledBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "field",
+              "name": "describedBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "field",
+              "name": "_radioCount",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "description": "Jumlah radio yang terdeteksi (pemicu re-render wiring)."
+            },
+            {
+              "kind": "method",
+              "name": "_radios",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "NodeListOf<HTMLInputElement>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_applyDisabled",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_onSlotChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "wec-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Radio berslot berubah (oleh pengguna). detail: `{ value }`."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Nonaktifkan semua radio berslot.",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-radio-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecRadioGroup",
+          "declaration": {
+            "name": "WecRadioGroup",
+            "module": "src/components/atoms/wec-radio-group/wec-radio-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-radio-group",
+          "declaration": {
+            "name": "WecRadioGroup",
+            "module": "src/components/atoms/wec-radio-group/wec-radio-group.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-select/wec-select.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Dropdown pilihan — membungkus `<select>` native; opsi ditulis sebagai\n`<option>` di light DOM (tetap native dan aksesibel).",
+          "name": "WecSelect",
+          "cssParts": [
+            {
+              "description": "Elemen `<select>` internal.",
+              "name": "select"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Elemen `<option>` / `<optgroup>`.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Nilai terpilih.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Opsi kosong sementara (muncul sebelum ada pilihan).",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wajib diisi.",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai tidak valid.",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleName",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` untuk pemakaian tanpa `wec-form-field`.",
+              "attribute": "accessible-name"
+            },
+            {
+              "kind": "field",
+              "name": "labelledBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "field",
+              "name": "describedBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Fokus ke `<select>` internal."
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onFocus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onBlur",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_select",
+              "type": {
+                "text": "HTMLSelectElement"
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "wec-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Pilihan berubah. detail: `{ value }`."
+            },
+            {
+              "name": "wec-focus",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Mendapat fokus."
+            },
+            {
+              "name": "wec-blur",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Kehilangan fokus."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Nilai terpilih.",
+              "fieldName": "value"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Opsi kosong sementara (muncul sebelum ada pilihan).",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wajib diisi.",
+              "fieldName": "required"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai tidak valid.",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "accessible-name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` untuk pemakaian tanpa `wec-form-field`.",
+              "fieldName": "accessibleName"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-select",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecSelect",
+          "declaration": {
+            "name": "WecSelect",
+            "module": "src/components/atoms/wec-select/wec-select.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-select",
+          "declaration": {
+            "name": "WecSelect",
+            "module": "src/components/atoms/wec-select/wec-select.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-switch/wec-switch.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Switch on/off (`role=\"switch\"`).",
+          "name": "WecSwitch",
+          "cssParts": [
+            {
+              "description": "Elemen `<label>` pembungkus.",
+              "name": "label"
+            },
+            {
+              "description": "Track switch.",
+              "name": "track"
+            },
+            {
+              "description": "Knob bulat.",
+              "name": "knob"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Teks label switch.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Status aktif.",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai tidak valid.",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleName",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` bila slot label tidak dipakai.",
+              "attribute": "accessible-name"
+            },
+            {
+              "kind": "field",
+              "name": "labelledBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "field",
+              "name": "describedBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Fokus ke input internal."
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_input",
+              "type": {
+                "text": "HTMLInputElement"
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "wec-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Status berubah. detail: `{ checked }`."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Status aktif.",
+              "fieldName": "checked"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai tidak valid.",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "accessible-name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` bila slot label tidak dipakai.",
+              "fieldName": "accessibleName"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-switch",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecSwitch",
+          "declaration": {
+            "name": "WecSwitch",
+            "module": "src/components/atoms/wec-switch/wec-switch.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-switch",
+          "declaration": {
+            "name": "WecSwitch",
+            "module": "src/components/atoms/wec-switch/wec-switch.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-textarea/wec-textarea.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Area teks multiline.\n\nGunakan bersama `wec-form-field` untuk label + hint + error (wiring ARIA\notomatis). Properti `rows` mengatur tinggi awal.",
+          "name": "WecTextarea",
+          "cssProperties": [
+            {
+              "description": "Warna border.",
+              "name": "--wec-color-border-*"
+            },
+            {
+              "description": "Radius sudut.",
+              "name": "--wec-radius-md"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Elemen `<textarea>` internal.",
+              "name": "textarea"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Nilai textarea.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks placeholder.",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "rows",
+              "type": {
+                "text": "number"
+              },
+              "default": "3",
+              "description": "Jumlah baris terlihat.",
+              "attribute": "rows"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Mode baca-saja.",
+              "attribute": "readonly",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wajib diisi.",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai tidak valid.",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleName",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` untuk pemakaian tanpa `wec-form-field`.",
+              "attribute": "accessible-name"
+            },
+            {
+              "kind": "field",
+              "name": "labelledBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "field",
+              "name": "describedBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field`."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Fokus ke `<textarea>` internal."
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "method",
+              "name": "_onInput",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onFocus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onBlur",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_textarea",
+              "type": {
+                "text": "HTMLTextAreaElement"
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "wec-input",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Nilai berubah saat mengetik. detail: `{ value }`."
+            },
+            {
+              "name": "wec-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Nilai commit (blur). detail: `{ value }`."
+            },
+            {
+              "name": "wec-focus",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Mendapat fokus."
+            },
+            {
+              "name": "wec-blur",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Kehilangan fokus."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Nilai textarea.",
+              "fieldName": "value"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks placeholder.",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "rows",
+              "type": {
+                "text": "number"
+              },
+              "default": "3",
+              "description": "Jumlah baris terlihat.",
+              "fieldName": "rows"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Mode baca-saja.",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wajib diisi.",
+              "fieldName": "required"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai tidak valid.",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "accessible-name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` untuk pemakaian tanpa `wec-form-field`.",
+              "fieldName": "accessibleName"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-textarea",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecTextarea",
+          "declaration": {
+            "name": "WecTextarea",
+            "module": "src/components/atoms/wec-textarea/wec-textarea.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-textarea",
+          "declaration": {
+            "name": "WecTextarea",
+            "module": "src/components/atoms/wec-textarea/wec-textarea.ts"
           }
         }
       ]

@@ -1,0 +1,57 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as SwitchStories from './wec-switch.stories';
+
+<Meta of={SwitchStories} />
+
+# wec-switch
+
+Switch on/off dengan `role="switch"`. Keyboard: `Space` untuk toggle.
+
+<Canvas of={SwitchStories.Playground} />
+
+<ArgTypes of={SwitchStories} />
+
+## Events
+
+| Event        | detail        | Kapan          |
+| ------------ | ------------- | -------------- |
+| `wec-change` | `{ checked }` | Status berubah |
+
+Interaksi di Playground tampil di panel **Actions**.
+
+## React
+
+```tsx
+import { Switch } from '@wec-ui/react';
+
+<Switch checked onWecChange={(e: CustomEvent<{ checked: boolean }>) => setOn(e.detail.checked)}>
+  Notifikasi email
+</Switch>;
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-switch.js';
+```
+
+```html
+<wec-switch (wec-change)="onChange($event)">Notifikasi email</wec-switch>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-switch.js:
+    attributes:
+      type: module
+```
+
+```twig
+<wec-switch>{{ 'Notifikasi email'|t }}</wec-switch>
+```

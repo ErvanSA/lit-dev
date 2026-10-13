@@ -2,12 +2,8 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import {
-  eventNameToHandler,
-  generateWrappers,
-  modulePathToImport,
-  tagNameToComponentName,
-} from '../generate.mjs';
+import { generateWrappers } from '../generate.mjs';
+import { eventNameToHandler, modulePathToImport, tagNameToComponentName } from '../cem.mjs';
 
 const miniManifest = {
   modules: [

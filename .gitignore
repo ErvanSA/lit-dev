@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 packages/*/dist/
+packages/drupal/
 packages/core/storybook-static/
 tokens/build/.*.tmp.css
 

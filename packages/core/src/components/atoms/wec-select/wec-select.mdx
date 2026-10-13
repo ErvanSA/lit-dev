@@ -1,0 +1,67 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as SelectStories from './wec-select.stories';
+
+<Meta of={SelectStories} />
+
+# wec-select
+
+Dropdown pilihan — membungkus `<select>` native. Opsi ditulis sebagai
+`<option>` biasa di light DOM sehingga tetap native dan aksesibel.
+
+<Canvas of={SelectStories.Playground} />
+
+<ArgTypes of={SelectStories} />
+
+## Events
+
+| Event        | detail      | Kapan            |
+| ------------ | ----------- | ---------------- |
+| `wec-change` | `{ value }` | Pilihan berubah  |
+| `wec-focus`  | —           | Mendapat fokus   |
+| `wec-blur`   | —           | Kehilangan fokus |
+
+Interaksi di Playground tampil di panel **Actions**.
+
+## React
+
+```tsx
+import { FormField, Select } from '@wec-ui/react';
+
+<FormField label="Kota" required>
+  <Select placeholder="Pilih kota">
+    <option value="bdg">Bandung</option>
+    <option value="jkt">Jakarta</option>
+  </Select>
+</FormField>;
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-select.js';
+```
+
+```html
+<wec-select placeholder="Pilih kota">
+  <option value="bdg">Bandung</option>
+</wec-select>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-select.js:
+    attributes:
+      type: module
+```
+
+```twig
+<wec-select placeholder="{{ 'Pilih kota'|t }}">
+  <option value="bdg">Bandung</option>
+</wec-select>
+```

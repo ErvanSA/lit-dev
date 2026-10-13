@@ -1,0 +1,61 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as TextareaStories from './wec-textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# wec-textarea
+
+Area teks multiline. Gunakan bersama `wec-form-field` untuk label + hint +
+error (wiring ARIA otomatis).
+
+<Canvas of={TextareaStories.Playground} />
+
+<ArgTypes of={TextareaStories} />
+
+## Events
+
+| Event        | detail      | Kapan                          |
+| ------------ | ----------- | ------------------------------ |
+| `wec-input`  | `{ value }` | Setiap perubahan saat mengetik |
+| `wec-change` | `{ value }` | Nilai commit (blur)            |
+| `wec-focus`  | —           | Mendapat fokus                 |
+| `wec-blur`   | —           | Kehilangan fokus               |
+
+Interaksi di Playground tampil di panel **Actions**.
+
+## React
+
+```tsx
+import { FormField, Textarea } from '@wec-ui/react';
+
+<FormField label="Catatan">
+  <Textarea rows={4} placeholder="Tulis catatan…" />
+</FormField>;
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-textarea.js';
+```
+
+```html
+<wec-textarea rows="4" placeholder="Tulis catatan…"></wec-textarea>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-textarea.js:
+    attributes:
+      type: module
+```
+
+```twig
+<wec-textarea rows="4"></wec-textarea>
+```

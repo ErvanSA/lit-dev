@@ -43,6 +43,9 @@
   --wec-size-icon-sm: 1rem;
   --wec-size-icon-md: 1.25rem;
   --wec-size-icon-lg: 1.5rem;
+  --wec-size-control-track-w: 2.5rem;
+  --wec-size-control-track-h: 1.25rem;
+  --wec-size-control-knob: 1rem;
   --wec-space-1: 0.25rem;
   --wec-space-2: 0.5rem;
   --wec-space-3: 0.75rem;

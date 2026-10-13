@@ -7,16 +7,7 @@ import { WecCheckbox } from '../../src/components/atoms/wec-checkbox/wec-checkbo
 import { WecFormField } from '../../src/components/molecules/wec-form-field/wec-form-field.js';
 import { WecIcon } from '../../src/components/atoms/wec-icon/wec-icon.js';
 import { WecInput } from '../../src/components/atoms/wec-input/wec-input.js';
-
-/** Buat + pasang elemen, tunggu render selesai. */
-export async function mount<K extends keyof HTMLElementTagNameMap>(
-  tag: K,
-): Promise<HTMLElementTagNameMap[K]> {
-  const el = document.createElement(tag);
-  document.body.appendChild(el);
-  await (el as unknown as { updateComplete: Promise<boolean> }).updateComplete;
-  return el;
-}
+import { mount } from './helpers.js';
 
 describe('registry komponen', () => {
   it('semua komponen fase 1 terdaftar di customElements', () => {
