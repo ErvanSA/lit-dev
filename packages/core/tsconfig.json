@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vite/client"]
+  },
+  "include": ["src", "tests", ".storybook", "vite.config.ts", "custom-elements-manifest.config.js"]
+}

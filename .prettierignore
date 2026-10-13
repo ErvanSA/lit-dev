@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+**/dist/
+**/build/
+**/coverage/
+**/node_modules/
+packages/core/storybook-static/
+packages/core/custom-elements.json
+test-results/
+playwright-report/
+blob-report/

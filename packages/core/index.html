@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>wec-ui — playground dev</title>
+    <script type="module" src="/src/index.ts"></script>
+    <style>
+      body {
+        font-family: var(--wec-font-family-base);
+        color: var(--wec-color-text-default);
+        background: var(--wec-color-background-default);
+        padding: var(--wec-space-6);
+        display: grid;
+        gap: var(--wec-space-4);
+        justify-items: start;
+      }
+      h1 {
+        font-size: var(--wec-font-size-xl);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>wec-ui — playground dev</h1>
+    <p>
+      Halaman uji cepat saat development. Dokumentasi lengkap: jalankan
+      <code>pnpm dev</code> (Storybook).
+    </p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
+      <wec-button variant="primary">Primary</wec-button>
+      <wec-button variant="secondary">Secondary</wec-button>
+      <wec-button variant="ghost">Ghost</wec-button>
+      <wec-button variant="danger">Danger</wec-button>
+      <wec-button variant="primary" disabled>Disabled</wec-button>
+    </div>
+  </body>
+</html>

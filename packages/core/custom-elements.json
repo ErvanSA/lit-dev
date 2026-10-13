@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-button.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-button/wec-button.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/icon/registry.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/icon/registry.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "icons",
+          "type": {
+            "text": "Record<WecIconName, string>"
+          },
+          "default": "{ 'check': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>', 'close': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>', }",
+          "description": "Registry ikon: nama → markup SVG."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "icons",
+          "declaration": {
+            "name": "icons",
+            "module": "src/components/atoms/icon/registry.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-button/wec-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tombol dasar design system wec-ui.",
+          "name": "WecButton",
+          "cssProperties": [
+            {
+              "description": "Warna latar varian `primary`.",
+              "name": "--wec-color-brand-primary"
+            },
+            {
+              "description": "Warna latar varian `danger`.",
+              "name": "--wec-color-semantic-danger"
+            },
+            {
+              "description": "Radius sudut tombol.",
+              "name": "--wec-radius-md"
+            },
+            {
+              "description": "Skala padding internal.",
+              "name": "--wec-space-*"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Elemen `<button>` internal.",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Konten tombol (teks, atau ikon + teks).",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "WecButtonVariant"
+              },
+              "default": "'primary'",
+              "description": "Varian visual tombol.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WecButtonSize"
+              },
+              "default": "'md'",
+              "description": "Ukuran tombol.",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan interaksi tombol.",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "events": [
+            {
+              "description": "Event klik native (composed) dari `<button>` internal.",
+              "name": "click"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "WecButtonVariant"
+              },
+              "default": "'primary'",
+              "description": "Varian visual tombol.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "WecButtonSize"
+              },
+              "default": "'md'",
+              "description": "Ukuran tombol.",
+              "fieldName": "size"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan interaksi tombol.",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecButton",
+          "declaration": {
+            "name": "WecButton",
+            "module": "src/components/atoms/wec-button/wec-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-button",
+          "declaration": {
+            "name": "WecButton",
+            "module": "src/components/atoms/wec-button/wec-button.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

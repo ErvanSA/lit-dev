@@ -1,0 +1,97 @@
+/*
+ * DIGENERATE dari tokens/tokens.json (Style Dictionary) — jangan edit manual.
+ * Jalankan ulang: pnpm build:tokens
+ *
+ * Light theme : :root, :host (default)
+ * Dark theme  : [data-theme="dark"]
+ */
+:root, :host {
+  --wec-color-brand-primary: #0f62fe;
+  --wec-color-brand-primary-hover: #0353e9;
+  --wec-color-brand-on-primary: #ffffff;
+  --wec-color-neutral-0: #ffffff;
+  --wec-color-neutral-100: #f4f4f6;
+  --wec-color-neutral-200: #e6e6ea;
+  --wec-color-neutral-300: #d0d0d8;
+  --wec-color-neutral-400: #a9a9b6;
+  --wec-color-neutral-500: #7c7c8c;
+  --wec-color-neutral-600: #5d5d6e;
+  --wec-color-neutral-700: #454554;
+  --wec-color-neutral-800: #2e2e3a;
+  --wec-color-neutral-900: #1b1b24;
+  --wec-color-neutral-1000: #101018;
+  --wec-color-text-default: #1b1b24;
+  --wec-color-text-muted: #5d5d6e;
+  --wec-color-text-on-color: #ffffff;
+  --wec-color-background-default: #ffffff;
+  --wec-color-background-subtle: #f4f4f6;
+  --wec-color-background-subtle-hover: #e6e6ea;
+  --wec-color-background-inverse: #1b1b24;
+  --wec-color-border-default: #d0d0d8;
+  --wec-color-border-subtle: #e6e6ea;
+  --wec-color-border-focus: #0f62fe;
+  --wec-color-semantic-success: #198038;
+  --wec-color-semantic-warning: #f1c21b;
+  --wec-color-semantic-danger: #da1e28;
+  --wec-color-semantic-danger-hover: #ba1b23;
+  --wec-color-semantic-on-danger: #ffffff;
+  --wec-color-semantic-info: #0f62fe;
+  --wec-space-1: 0.25rem;
+  --wec-space-2: 0.5rem;
+  --wec-space-3: 0.75rem;
+  --wec-space-4: 1rem;
+  --wec-space-5: 1.25rem;
+  --wec-space-6: 1.5rem;
+  --wec-space-8: 2rem;
+  --wec-space-10: 2.5rem;
+  --wec-space-12: 3rem;
+  --wec-space-16: 4rem;
+  --wec-radius-sm: 0.25rem;
+  --wec-radius-md: 0.5rem;
+  --wec-radius-lg: 0.75rem;
+  --wec-radius-full: 9999px;
+  --wec-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --wec-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --wec-font-size-xs: 0.75rem;
+  --wec-font-size-sm: 0.875rem;
+  --wec-font-size-md: 1rem;
+  --wec-font-size-lg: 1.125rem;
+  --wec-font-size-xl: 1.5rem;
+  --wec-font-size-xxl: 2rem;
+  --wec-font-weight-regular: 400;
+  --wec-font-weight-medium: 500;
+  --wec-font-weight-semibold: 600;
+  --wec-font-weight-bold: 700;
+  --wec-font-line-height-tight: 1.25;
+  --wec-font-line-height-normal: 1.5;
+  --wec-font-line-height-relaxed: 1.75;
+  --wec-shadow-sm: 0 1px 2px rgba(16, 16, 24, 0.10);
+  --wec-shadow-md: 0 4px 12px rgba(16, 16, 24, 0.12);
+  --wec-shadow-lg: 0 12px 32px rgba(16, 16, 24, 0.16);
+  --wec-z-dropdown: 1000;
+  --wec-z-sticky: 1020;
+  --wec-z-modal: 1050;
+  --wec-z-tooltip: 1080;
+}
+
+[data-theme="dark"] {
+  --wec-color-brand-primary: #4589ff;
+  --wec-color-brand-primary-hover: #6ea6ff;
+  --wec-color-brand-on-primary: #101018;
+  --wec-color-text-default: #f4f4f6;
+  --wec-color-text-muted: #a9a9b6;
+  --wec-color-text-on-color: #101018;
+  --wec-color-background-default: #101018;
+  --wec-color-background-subtle: #1b1b24;
+  --wec-color-background-subtle-hover: #2e2e3a;
+  --wec-color-background-inverse: #f4f4f6;
+  --wec-color-border-default: #454554;
+  --wec-color-border-subtle: #2e2e3a;
+  --wec-color-border-focus: #6ea6ff;
+  --wec-color-semantic-success: #42be65;
+  --wec-color-semantic-warning: #f1c21b;
+  --wec-color-semantic-danger: #fa4d56;
+  --wec-color-semantic-danger-hover: #ff8389;
+  --wec-color-semantic-on-danger: #101018;
+  --wec-color-semantic-info: #4589ff;
+}

@@ -1,0 +1,29 @@
+# Dependensi
+node_modules/
+
+# Build output
+packages/core/dist/
+packages/core/storybook-static/
+tokens/build/.*.tmp.css
+
+# Test & laporan
+test-results/
+playwright-report/
+blob-report/
+coverage/
+
+# Tooling
+.eslintcache
+*.tsbuildinfo
+.vite/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Env
+.env
+.env.*

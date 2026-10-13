@@ -1,0 +1,35 @@
+# STUB — pipeline GitLab lengkap (runner self-hosted, artifact Storybook,
+# test e2e, publishing) dikerjakan di Fase 3 sesuai PLAN.md.
+# Struktur job di bawah sudah mengikuti rencana: lint → build → test.
+stages:
+  - lint
+  - build
+  - test
+
+default:
+  image: node:22
+  before_script:
+    - corepack enable
+    - pnpm install --frozen-lockfile
+
+lint:
+  stage: lint
+  script:
+    - pnpm lint
+
+build:
+  stage: build
+  script:
+    - pnpm build
+  artifacts:
+    paths:
+      - packages/core/dist/
+      - packages/core/custom-elements.json
+      - tokens/build/
+
+test:unit:
+  stage: test
+  script:
+    - pnpm test:unit
+
+# test:e2e (Playwright + chromium) dan artifact Storybook menyusul di Fase 3.

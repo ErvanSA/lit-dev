@@ -1,0 +1,49 @@
+packages:
+  - packages/*
+
+# Dependensi yang boleh menjalankan lifecycle/build script (pnpm ≥10 default: diblokir)
+allowBuilds:
+  '@bundled-es-modules/glob': true
+  esbuild: true
+  rs-module-lexer: true
+  style-dictionary: true
+
+# Kebijakan supply-chain pnpm 12 (minimumReleaseAge): paket-paket di bawah dipercaya
+# meskipun baru dipublikasikan (rilis harian typescript-eslint/vitest/storybook 8.6.x).
+minimumReleaseAgeExclude:
+  - '@storybook/addon-actions@8.6.19'
+  - '@storybook/addon-backgrounds@8.6.19'
+  - '@storybook/addon-controls@8.6.19'
+  - '@storybook/addon-docs@8.6.19'
+  - '@storybook/addon-essentials@8.6.19'
+  - '@storybook/addon-highlight@8.6.19'
+  - '@storybook/addon-measure@8.6.19'
+  - '@storybook/addon-outline@8.6.19'
+  - '@storybook/addon-toolbars@8.6.19'
+  - '@storybook/addon-viewport@8.6.19'
+  - '@storybook/blocks@8.6.19'
+  - '@storybook/builder-vite@8.6.19'
+  - '@storybook/components@8.6.19'
+  - '@storybook/core@8.6.19'
+  - '@storybook/csf-plugin@8.6.19'
+  - '@storybook/manager-api@8.6.19'
+  - '@storybook/preview-api@8.6.19'
+  - '@storybook/react-dom-shim@8.6.19'
+  - '@storybook/theming@8.6.19'
+  - '@storybook/web-components-vite@8.6.19'
+  - '@storybook/web-components@8.6.19'
+  - '@typescript-eslint/eslint-plugin@8.71.2'
+  - '@typescript-eslint/parser@8.71.2'
+  - '@typescript-eslint/project-service@8.71.2'
+  - '@typescript-eslint/scope-manager@8.71.2'
+  - '@typescript-eslint/tsconfig-utils@8.71.2'
+  - '@typescript-eslint/types@8.71.2'
+  - '@typescript-eslint/typescript-estree@8.71.2'
+  - '@typescript-eslint/type-utils@8.71.2'
+  - '@typescript-eslint/utils@8.71.2'
+  - '@typescript-eslint/visitor-keys@8.71.2'
+  - '@vitest/mocker@5.0.4'
+  - '@vitest/spy@5.0.4'
+  - vitest@5.0.4
+  - storybook@8.6.19
+  - typescript-eslint@8.71.2

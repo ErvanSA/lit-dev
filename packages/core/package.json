@@ -1,0 +1,44 @@
+{
+  "name": "wec-ui",
+  "version": "0.0.0",
+  "description": "Design system internal berbasis Web Components (Lit) — paket core.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./define/*": {
+      "import": "./dist/define/*.js"
+    },
+    "./custom-elements.json": "./custom-elements.json"
+  },
+  "files": [
+    "dist",
+    "custom-elements.json"
+  ],
+  "scripts": {
+    "build": "vite build && cem analyze --litelement",
+    "typecheck": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build"
+  },
+  "dependencies": {
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.11.0",
+    "@storybook/addon-essentials": "^8.6.19",
+    "@storybook/web-components": "^8.6.19",
+    "@storybook/web-components-vite": "^8.6.19",
+    "@types/node": "^22.20.5",
+    "storybook": "^8.6.19",
+    "vite": "^6.4.4",
+    "vite-plugin-dts": "^5.1.2"
+  },
+  "customElements": "custom-elements.json"
+}

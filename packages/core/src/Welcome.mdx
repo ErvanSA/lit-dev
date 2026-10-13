@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Dokumentasi/Pengantar" />
+
+# wec-ui — Design System Internal
+
+Design system berbasis **Web Components (Lit 3)** dengan pola **Atomic Design**, untuk dipakai
+lintas **Angular ≥ 18, React, Next.js ≥ 14 (App Router), dan Drupal 10/11**.
+
+## Status
+
+🚧 **Fase 0 — Fondasi.** Scaffold monorepo, token desain, ikon, tooling, test, dan pipeline
+Storybook sudah siap. Komponen penuh (dengan docs React/Angular/Next/Drupal) diisi mulai
+**Fase 1** — lihat `PLAN.md` di root repo.
+
+## Struktur komponen
+
+| Level     | Komponen                                             | Status                                    |
+| --------- | ---------------------------------------------------- | ----------------------------------------- |
+| Atoms     | `wec-button`                                         | 🚧 validator pipeline (lengkap di Fase 1) |
+| Atoms     | `wec-input`, `wec-icon`, `wec-badge`, `wec-checkbox` | Fase 1                                    |
+| Molecules | `wec-form-field`, `wec-card`                         | Fase 1                                    |
+
+## Tema (theming)
+
+Seluruh styling komponen memakai CSS custom properties berprefix `--wec-` (lihat
+`tokens/tokens.json`). Dark mode aktif dengan atribut global:
+
+```js
+document.documentElement.dataset.theme = 'dark';
+```
+
+atau set `data-theme="dark"` pada elemen pembungkus aplikasi.
