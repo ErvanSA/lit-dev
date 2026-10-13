@@ -1,20 +1,23 @@
-import { LitElement, css, html, nothing } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
-export type WecButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
-export type WecButtonSize = 'sm' | 'md' | 'lg';
+export type WecButtonVariant = 'primary' | 'outline';
 
 /**
- * Tombol dasar design system wec-ui.
+ * Tombol design system wec-ui (brand Telkomsel).
  *
- * @slot - Konten tombol (teks, atau ikon + teks).
- * @slot icon-start - Ikon di awal (sebelum teks).
- * @slot icon-end - Ikon di akhir (setelah teks).
+ * Varian:
+ * - `primary` — latar merah Telkomsel, teks putih.
+ * - `outline` — latar putih, border + teks merah Telkomsel.
+ *
+ * `disabled` adalah state (bukan varian): latar abu, teks abu, non-interaktif.
+ *
+ * @slot - Konten tombol (teks).
  * @csspart button - Elemen `<button>` internal.
  * @cssprop --wec-color-brand-primary - Warna latar varian `primary`.
- * @cssprop --wec-color-semantic-danger - Warna latar varian `danger`.
- * @cssprop --wec-radius-md - Radius sudut tombol.
- * @cssprop --wec-space-* - Skala padding internal.
+ * @cssprop --wec-color-brand-primary-hover - Warna hover varian `primary`.
+ * @cssprop --wec-color-brand-primary-tint - Warna hover varian `outline`.
+ * @cssprop --wec-size-control-height - Tinggi minimum tombol.
  * @fires click - Event klik native (composed) dari `<button>` internal.
  */
 @customElement('wec-button')
@@ -22,14 +25,8 @@ export class WecButton extends LitElement {
   /** Varian visual tombol. */
   @property({ reflect: true }) variant: WecButtonVariant = 'primary';
 
-  /** Ukuran tombol. */
-  @property({ reflect: true }) size: WecButtonSize = 'md';
-
   /** Nonaktifkan interaksi tombol. */
   @property({ type: Boolean, reflect: true }) disabled = false;
-
-  /** Tampilkan spinner dan tahan interaksi (proses berjalan). */
-  @property({ type: Boolean, reflect: true }) loading = false;
 
   static override styles = css`
     :host {
@@ -38,14 +35,18 @@ export class WecButton extends LitElement {
 
     button {
       display: inline-flex;
+      width: 100%;
       align-items: center;
       justify-content: center;
-      gap: var(--wec-space-2);
-      border: 1px solid transparent;
-      border-radius: var(--wec-radius-md);
-      font-family: var(--wec-font-family-base);
-      font-weight: var(--wec-font-weight-medium);
+      box-sizing: border-box;
+      min-height: var(--wec-size-control-height);
+      padding-inline: var(--wec-space-8);
+      border: 2px solid transparent;
+      border-radius: var(--wec-radius-full);
+      font-family: var(--wec-font-family-bold);
+      font-size: var(--wec-font-size-lg);
       line-height: var(--wec-font-line-height-normal);
+      white-space: nowrap;
       cursor: pointer;
       transition:
         background-color 120ms ease,
@@ -58,21 +59,7 @@ export class WecButton extends LitElement {
       outline-offset: 2px;
     }
 
-    /* Ukuran */
-    :host([size='sm']) button {
-      font-size: var(--wec-font-size-sm);
-      padding: var(--wec-space-1) var(--wec-space-3);
-    }
-    :host([size='md']) button {
-      font-size: var(--wec-font-size-md);
-      padding: var(--wec-space-2) var(--wec-space-4);
-    }
-    :host([size='lg']) button {
-      font-size: var(--wec-font-size-lg);
-      padding: var(--wec-space-3) var(--wec-space-6);
-    }
-
-    /* Varian */
+    /* Varian primary */
     :host([variant='primary']) button {
       background: var(--wec-color-brand-primary);
       color: var(--wec-color-brand-on-primary);
@@ -80,72 +67,37 @@ export class WecButton extends LitElement {
     :host([variant='primary']:not([disabled])) button:hover {
       background: var(--wec-color-brand-primary-hover);
     }
-
-    :host([variant='secondary']) button {
-      background: var(--wec-color-background-subtle);
-      color: var(--wec-color-text-default);
-      border-color: var(--wec-color-border-default);
-    }
-    :host([variant='secondary']:not([disabled])) button:hover {
-      background: var(--wec-color-background-subtle-hover);
-    }
-
-    :host([variant='ghost']) button {
-      background: transparent;
-      color: var(--wec-color-text-default);
-    }
-    :host([variant='ghost']:not([disabled])) button:hover {
-      background: var(--wec-color-background-subtle);
-    }
-
-    :host([variant='danger']) button {
-      background: var(--wec-color-semantic-danger);
-      color: var(--wec-color-semantic-on-danger);
-    }
-    :host([variant='danger']:not([disabled])) button:hover {
+    :host([variant='primary']:not([disabled])) button:active {
       background: var(--wec-color-semantic-danger-hover);
     }
 
-    /* Spinner saat loading */
-    .spinner {
-      width: 1em;
-      height: 1em;
-      flex: none;
-      border: 2px solid currentcolor;
-      border-right-color: transparent;
-      border-radius: var(--wec-radius-full);
-      animation: wec-spin 600ms linear infinite;
+    /* Varian outline */
+    :host([variant='outline']) button {
+      background: var(--wec-color-background-default);
+      color: var(--wec-color-brand-primary);
+      border-color: var(--wec-color-brand-primary);
+    }
+    :host([variant='outline']:not([disabled])) button:hover {
+      background: var(--wec-color-brand-primary-tint);
+    }
+    :host([variant='outline']:not([disabled])) button:active {
+      background: var(--wec-color-brand-primary-tint);
+      color: var(--wec-color-semantic-danger-hover);
+      border-color: var(--wec-color-semantic-danger-hover);
     }
 
-    @keyframes wec-spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    :host([loading]) button {
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
+    /* State disabled */
     :host([disabled]) button {
-      opacity: 0.5;
+      background: var(--wec-color-background-disabled);
+      color: var(--wec-color-text-disabled);
+      border-color: transparent;
       cursor: not-allowed;
-      pointer-events: none;
     }
   `;
 
   override render() {
-    return html`<button
-      part="button"
-      type="button"
-      ?disabled=${this.disabled || this.loading}
-      aria-busy=${this.loading ? 'true' : nothing}
-    >
-      ${this.loading ? html`<span class="spinner" aria-hidden="true"></span>` : nothing}
-      <slot name="icon-start"></slot>
+    return html`<button part="button" type="button" ?disabled=${this.disabled}>
       <slot></slot>
-      <slot name="icon-end"></slot>
     </button>`;
   }
 

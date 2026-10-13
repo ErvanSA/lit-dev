@@ -16,18 +16,8 @@ const meta: MetaWithDocs<WecButton> = {
   docs: {
     page: './wec-button.mdx',
   },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Tombol dasar wec-ui. Varian: `primary`, `secondary`, `ghost`, `danger`. ' +
-          'Gunakan Playground untuk mencoba semua state.',
-      },
-    },
-  },
   argTypes: {
-    variant: { control: 'select', options: ['primary', 'secondary', 'ghost', 'danger'] },
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    variant: { control: 'radio', options: ['primary', 'outline'] },
     click: { action: 'click' },
   },
 };
@@ -38,18 +28,9 @@ type Story = StoryObj<WecButton>;
 export const Playground: Story = {
   args: {
     variant: 'primary',
-    size: 'md',
     disabled: false,
-    loading: false,
   },
   render: (args) => html`
-    <wec-button
-      variant=${args.variant}
-      size=${args.size}
-      ?disabled=${args.disabled}
-      ?loading=${args.loading}
-    >
-      Klik saya
-    </wec-button>
+    <wec-button variant=${args.variant} ?disabled=${args.disabled}>Ganti Nomor</wec-button>
   `,
 };

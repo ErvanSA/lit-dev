@@ -1,4 +1,5 @@
 pnpm-lock.yaml
+**/.design-to-code/
 **/dist/
 **/build/
 **/coverage/

@@ -4,14 +4,15 @@ Design system internal berbasis **Web Components (Lit 3)** dengan pola **Atomic 
 Dipakai lintas **Angular ≥ 18, React (latest & latest-1), Next.js ≥ 14 (App Router), dan
 Drupal 10/11**. Rencana lengkap: lihat [`PLAN.md`](./PLAN.md).
 
-## Status: Fase 2 — Perluasan ✅
+## Status: Pivot brand Telkomsel ✅
 
-**Atoms**: `wec-button`, `wec-input`, `wec-textarea`, `wec-select`, `wec-checkbox`,
-`wec-switch`, `wec-radio-group`, `wec-icon`, `wec-badge` ·
-**Molecules**: `wec-form-field`, `wec-card` — dengan docs Storybook (MDX), test unit
-(Vitest), wrapper **`@wec-ui/react`** + **`@wec-ui/angular`** (digenerate dari CEM),
-paket **Drupal** (`type: drupal-library`), dan audit aksesibilitas (lihat
-[`A11Y.md`](./A11Y.md)). Fase 0 (fondasi) & Fase 1 (MVP) selesai sebelumnya.
+Komponen aktif saat ini **hanya `wec-button`** (varian `primary` | `outline`,
+state `disabled`) sesuai desain terbaru — pill merah Telkomsel `#FF0025`, font
+**Poppins**. Token warna & font sudah Telkomsel (`tokens/tokens.json` +
+`tokens/fonts/`). Infrastruktur tetap: docs Storybook (MDX), test unit (Vitest),
+wrapper **`@wec-ui/react`** + **`@wec-ui/angular`** (digenerate dari CEM),
+paket **Drupal** (`type: drupal-library`), audit aksesibilitas
+([`A11Y.md`](./A11Y.md)). Komponen lain menyusul sesuai desain.
 
 ## Struktur
 
@@ -59,36 +60,35 @@ wec-ui/
 **React / Next.js** (wrapper sudah `'use client'`):
 
 ```tsx
-import { Button, Input, FormField } from '@wec-ui/react';
+import { Button } from '@wec-ui/react';
 
-export function Formulir() {
-  return (
-    <FormField label="Email" required>
-      <Input type="email" placeholder="nama@perusahaan.co.id" />
-    </FormField>
-  );
-}
+<Button variant="primary" onClick={gantiNomor}>Ganti Nomor</Button>
+<Button variant="outline" onClick={unduhKontrak}>Unduh Kontrak</Button>
+<Button variant="primary" disabled>Cek</Button>
 ```
 
-**Angular ≥ 18 / Drupal / tanpa wrapper** — muat definisi sekali:
+**Angular ≥ 18**:
 
-```js
-import 'wec-ui/define/wec-form-field.js';
-import 'wec-ui/define/wec-input.js';
+```ts
+import { WecUiModule } from '@wec-ui/angular';
 ```
 
 ```html
-<wec-form-field label="Email" required>
-  <wec-input type="email"></wec-input>
-</wec-form-field>
+<wec-button variant="primary" (click)="gantiNomor()">Ganti Nomor</wec-button>
 ```
 
-Contoh lengkap per framework (termasuk Drupal `libraries.yml` + Twig) ada di
-halaman docs tiap komponen di Storybook.
+**Drupal 10/11 / tanpa wrapper** — muat definisi sekali:
 
-Theming hanya via CSS custom properties berprefix `--wec-` (muat `tokens/build/tokens.css`
-sekali per aplikasi). Dark mode: set `data-theme="dark"` pada `<html>` atau pembungkus
-aplikasi.
+```js
+import 'wec-ui/define/wec-button.js';
+```
+
+Contoh lengkap (termasuk `libraries.yml` + Twig) ada di docs `wec-button`
+di Storybook.
+
+Theming hanya via CSS custom properties berprefix `--wec-` (muat
+`tokens/build/tokens.css` + `tokens/build/fonts.css` sekali per aplikasi).
+Dark mode: set `data-theme="dark"` pada `<html>` atau pembungkus aplikasi.
 
 ## Alur kerja komponen baru (ringkas)
 

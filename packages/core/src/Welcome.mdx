@@ -4,35 +4,24 @@ import { Meta } from '@storybook/blocks';
 
 # wec-ui — Design System Internal
 
-Design system berbasis **Web Components (Lit 3)** dengan pola **Atomic Design**, untuk dipakai
-lintas **Angular ≥ 18, React, Next.js ≥ 14 (App Router), dan Drupal 10/11**.
+Design system berbasis **Web Components (Lit 3)** untuk dipakai lintas
+**Angular ≥ 18, React, Next.js ≥ 14 (App Router), dan Drupal 10/11** —
+brand **Telkomsel** (font Poppins & Telkomsel Batik).
 
 ## Status
 
-✅ **Fase 0 — Fondasi**, **Fase 1 — MVP**, dan **Fase 2 — Perluasan** selesai.
-Komponen: `wec-button`, `wec-input`, `wec-textarea`, `wec-select`, `wec-checkbox`,
-`wec-switch`, `wec-radio-group`, `wec-icon`, `wec-badge` (atoms) dan
-`wec-form-field`, `wec-card` (molecules) — dengan wrapper `@wec-ui/react` +
-`@wec-ui/angular`, paket Drupal, docs MDX per framework, dan audit aksesibilitas
-(A11Y.md). Rencana lanjut: **Fase 3** (infra GitLab, publishing registry,
-eksperimen SSR) serta komponen overlay (`tabs`, `modal`, `tooltip`) sesuai
-kebutuhan konsumen.
+✅ **Pivot brand Telkomsel.** Token warna & font diganti ke brand Telkomsel
+(lihat `tokens/tokens.json` + `tokens/build/fonts.css`). Komponen lama
+dihapus; saat ini komponen yang tersedia:
 
-## Struktur komponen
+| Level | Komponen    | Varian/State                    |
+| ----- | ----------- | ------------------------------- |
+| Atoms | `wec-button` | `primary`, `outline`, `disabled` |
 
-| Level     | Komponen                                                                                                                          | Status                    |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Atoms     | `wec-button`, `wec-input`, `wec-textarea`, `wec-select`, `wec-checkbox`, `wec-switch`, `wec-radio-group`, `wec-icon`, `wec-badge` | ✅ Fase 1–2               |
-| Molecules | `wec-form-field`, `wec-card`                                                                                                      | ✅ Fase 1                 |
-| Lanjutan  | `tabs`, `modal`, `tooltip`                                                                                                        | sesuai kebutuhan konsumen |
+Komponen lain menyusul sesuai desain.
 
 ## Tema (theming)
 
-Seluruh styling komponen memakai CSS custom properties berprefix `--wec-` (lihat
-`tokens/tokens.json`). Dark mode aktif dengan atribut global:
-
-```js
-document.documentElement.dataset.theme = 'dark';
-```
-
-atau set `data-theme="dark"` pada elemen pembungkus aplikasi.
+Seluruh styling komponen memakai CSS custom properties berprefix `--wec-`
+(lihat `tokens/tokens.json`). Muat `tokens.css` + `fonts.css` sekali per
+aplikasi. Dark mode: set `data-theme="dark"` pada `<html>`.

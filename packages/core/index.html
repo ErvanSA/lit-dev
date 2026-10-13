@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>wec-ui — playground dev</title>
+    <link rel="stylesheet" href="/fonts.css" />
     <link rel="stylesheet" href="/tokens.css" />
     <script type="module" src="/src/index.ts"></script>
     <style>
@@ -20,6 +21,12 @@
         font-size: var(--wec-font-size-xl);
         margin: 0;
       }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
@@ -28,12 +35,10 @@
       Halaman uji cepat saat development. Dokumentasi lengkap: jalankan
       <code>pnpm dev</code> (Storybook).
     </p>
-    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
-      <wec-button variant="primary">Primary</wec-button>
-      <wec-button variant="secondary">Secondary</wec-button>
-      <wec-button variant="ghost">Ghost</wec-button>
-      <wec-button variant="danger">Danger</wec-button>
-      <wec-button variant="primary" disabled>Disabled</wec-button>
+    <div class="row">
+      <wec-button variant="primary">Ganti Nomor</wec-button>
+      <wec-button variant="primary" disabled>Cek</wec-button>
+      <wec-button variant="outline">Unduh Kontrak</wec-button>
     </div>
   </body>
 </html>

@@ -7,7 +7,7 @@
  *
  * Jalankan: pnpm build:tokens (dari root repo).
  */
-import { readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import StyleDictionary from 'style-dictionary';
@@ -69,4 +69,37 @@ writeFileSync(join(buildDir, 'tokens.css'), css);
 rmSync(join(buildDir, '.light.tmp.css'));
 rmSync(join(buildDir, '.dark.tmp.css'));
 
-console.log('✔ tokens/build/tokens.css digenerate (light + dark)');
+// --- Fonts: salin berkas font + generate fonts.css (@font-face) ---
+const fontsSrcDir = join(here, 'fonts');
+const fontsOutDir = join(buildDir, 'fonts');
+mkdirSync(fontsOutDir, { recursive: true });
+for (const file of readdirSync(fontsSrcDir)) {
+  cpSync(join(fontsSrcDir, file), join(fontsOutDir, file));
+}
+
+const FAMILIES = [
+  'poppins-bold',
+  'poppins-semibold',
+  'poppins-medium',
+  'poppins-regular',
+  'poppins-light',
+  'poppins-extra-bold',
+  'poppins-thin',
+  'telkomsel-batik-bold',
+  'telkomsel-batik-regular',
+];
+
+const faces = FAMILIES.map(
+  (family) => `@font-face {
+  font-family: '${family}';
+  src: url('fonts/${family}.woff2') format('woff2'), url('fonts/${family}.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}`,
+).join('\n\n');
+
+const fontsCss = `${HEADER}/* Font brand Telkomsel — berkas di tokens/fonts (disalin ke build/fonts). */\n\n${faces}\n`;
+writeFileSync(join(buildDir, 'fonts.css'), fontsCss);
+
+console.log('✔ tokens/build/tokens.css + fonts.css digenerate (light + dark)');

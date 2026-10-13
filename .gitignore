@@ -25,3 +25,6 @@ Thumbs.db
 # Env
 .env
 .env.*
+
+# design-to-code skill
+.design-to-code/

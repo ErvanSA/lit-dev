@@ -18,17 +18,7 @@ export default defineConfig({
     lib: {
       entry: {
         index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-        'define/wec-badge': componentEntry('wec-badge'),
         'define/wec-button': componentEntry('wec-button'),
-        'define/wec-card': componentEntry('wec-card'),
-        'define/wec-checkbox': componentEntry('wec-checkbox'),
-        'define/wec-form-field': componentEntry('wec-form-field'),
-        'define/wec-icon': componentEntry('wec-icon'),
-        'define/wec-input': componentEntry('wec-input'),
-        'define/wec-radio-group': componentEntry('wec-radio-group'),
-        'define/wec-select': componentEntry('wec-select'),
-        'define/wec-switch': componentEntry('wec-switch'),
-        'define/wec-textarea': componentEntry('wec-textarea'),
       },
       formats: ['es'],
     },

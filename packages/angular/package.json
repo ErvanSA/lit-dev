@@ -1,6 +1,6 @@
 {
   "name": "@wec-ui/angular",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Wrapper Angular untuk design system wec-ui — digenerate dari Custom Elements Manifest.",
   "type": "module",
   "license": "UNLICENSED",

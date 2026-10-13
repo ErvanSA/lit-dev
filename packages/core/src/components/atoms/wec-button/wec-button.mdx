@@ -5,89 +5,60 @@ import * as ButtonStories from './wec-button.stories';
 
 # wec-button
 
-Tombol dasar design system. Varian: `primary` (aksi utama), `secondary` (aksi
-pendamping), `ghost` (aksi ringan), `danger` (aksi destruktif). Prop `loading`
-menampilkan spinner dan menahan interaksi; prop `disabled` menonaktifkan tombol.
+Tombol design system wec-ui — brand **Telkomsel** (font Poppins, pill merah).
+
+| Varian    | Tampilan                                            |
+| --------- | --------------------------------------------------- |
+| `primary` | Latar merah `#FF0025`, teks putih bold              |
+| `outline` | Latar putih, border + teks merah `#FF0025`          |
+
+`disabled` adalah **state** (bukan varian): latar `#E9E8ED`, teks `#99A0A7`,
+non-interaktif.
 
 <Canvas of={ButtonStories.Playground} />
 
 <ArgTypes of={ButtonStories} />
+
+Interaksi klik tampil di panel **Actions**.
 
 ## React
 
 ```tsx
 import { Button } from '@wec-ui/react';
 
-export function Simpan() {
-  return (
-    <Button variant="primary" size="md" onWecClick={() => console.log('klik')}>
-      Simpan
-    </Button>
-  );
-}
-```
-
-Ikon prefix/suffix lewat slot:
-
-```tsx
-<Button>
-  <wec-icon slot="icon-start" name="check" />
-  Simpan
-</Button>
+<Button variant="primary" onClick={() => gantiNomor()}>Ganti Nomor</Button>
+<Button variant="outline" onClick={() => unduhKontrak()}>Unduh Kontrak</Button>
+<Button variant="primary" disabled>Cek</Button>
 ```
 
 ## Angular
 
 ```ts
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import 'wec-ui/define/wec-button.js';
+import { WecUiModule } from '@wec-ui/angular';
 
 @Component({
-  selector: 'app-simpan',
   standalone: true,
+  imports: [WecUiModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  template: `<wec-button variant="primary" (click)="simpan()">Simpan</wec-button>`,
+  template: `<wec-button variant="outline" (click)="unduh()">Unduh Kontrak</wec-button>`,
 })
-export class SimpanComponent {
-  simpan() {
-    // ...
-  }
-}
 ```
 
-## Next.js (App Router)
+## Next.js
 
-Saat memakai `@wec-ui/react`, banner `'use client'` sudah otomatis. Tanpa
-wrapper, impor definisi di dalam Client Component:
-
-```tsx
-'use client';
-import 'wec-ui/define/wec-button.js';
-```
+Sama dengan React — wrapper sudah `'use client'`.
 
 ## Drupal 10/11
 
-`wec_ui.libraries.yml`:
-
 ```yaml
 wec_ui:
-  version: 0.1.0
-  css:
-    theme:
-      tokens/tokens.css: {}
   js:
-    dist/define/wec-button.js:
-      type: module
-  dependencies:
-    - core/drupal
+    js/define/wec-button.js:
+      attributes:
+        type: module
 ```
-
-Twig:
 
 ```twig
 {{ attach_library('wec_ui/wec_ui') }}
-<wec-button variant="primary">{{ 'Simpan'|t }}</wec-button>
+<wec-button variant="primary">{{ 'Ganti Nomor'|t }}</wec-button>
 ```
-
-> Muat `tokens.css` **sekali per halaman**; definisi komponen (`define/*.js`)
-> cukup sekali per library.

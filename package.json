@@ -11,9 +11,8 @@
   "scripts": {
     "prepare": "husky",
     "dev": "pnpm --filter wec-ui storybook",
-    "build": "pnpm build:tokens && pnpm build:icons && pnpm --filter wec-ui build && pnpm gen:wrappers && pnpm --filter @wec-ui/react build && pnpm gen:wrappers:angular && pnpm --filter @wec-ui/angular build",
+    "build": "pnpm build:tokens && pnpm --filter wec-ui build && pnpm gen:wrappers && pnpm --filter @wec-ui/react build && pnpm gen:wrappers:angular && pnpm --filter @wec-ui/angular build",
     "build:tokens": "node tokens/build.mjs",
-    "build:icons": "node tools/icons/generate.mjs",
     "gen:wrappers": "node tools/generate-wrappers/generate.mjs",
     "gen:wrappers:angular": "node tools/generate-wrappers/generate-angular.mjs",
     "package:drupal": "node tools/package-drupal/package.mjs",

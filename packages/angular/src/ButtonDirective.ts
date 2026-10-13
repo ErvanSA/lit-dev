@@ -18,15 +18,7 @@ export class ButtonDirective {
     this._element.variant = value;
   }
 
-  @Input() set size(value: WecButton['size']) {
-    this._element.size = value;
-  }
-
   @Input() set disabled(value: WecButton['disabled']) {
     this._element.disabled = value;
-  }
-
-  @Input() set loading(value: WecButton['loading']) {
-    this._element.loading = value;
   }
 }

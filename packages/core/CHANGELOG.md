@@ -1,5 +1,14 @@
 # wec-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- Rebrand Telkomsel (breaking, pre-1.0): token warna & font diganti ke brand
+  Telkomsel (Poppins + Telkomsel Batik); semua komponen dikecualikan `wec-button`
+  dihapus; `wec-button` dibangun ulang dengan varian `primary` | `outline` dan
+  state `disabled`.
+
 ## 0.2.0
 
 ### Minor Changes

@@ -9,7 +9,7 @@ import * as React from 'react';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { describe, expect, it } from 'vitest';
-import { Badge, Button, Card, Checkbox, FormField, Icon, Input } from '../../src/index.js';
+import { Button } from '../../src/index.js';
 
 describe('wrapper React (@wec-ui/react) — render smoke', () => {
   function renderIsolated(ui: React.ReactElement): HTMLElement {
@@ -25,32 +25,14 @@ describe('wrapper React (@wec-ui/react) — render smoke', () => {
     return el;
   }
 
-  it('semua wrapper terekspor', () => {
+  it('wrapper Button terekspor', () => {
     // createComponent mengembalikan komponen React ber-forwardRef (objek).
     expect(Button).toBeDefined();
-    expect(Input).toBeDefined();
-    expect(Checkbox).toBeDefined();
-    expect(Badge).toBeDefined();
-    expect(Icon).toBeDefined();
-    expect(FormField).toBeDefined();
-    expect(Card).toBeDefined();
   });
 
-  it('setiap wrapper merender custom element dengan konten slot', () => {
-    const cases: Array<[React.ReactElement, string, string]> = [
-      [React.createElement(Button, null, 'Simpan'), 'WEC-BUTTON', 'Simpan'],
-      [React.createElement(Input, null), 'WEC-INPUT', ''],
-      [React.createElement(Checkbox, null, 'Setuju'), 'WEC-CHECKBOX', 'Setuju'],
-      [React.createElement(Badge, null, 'Baru'), 'WEC-BADGE', 'Baru'],
-      [React.createElement(Card, null, 'Isi'), 'WEC-CARD', 'Isi'],
-      [React.createElement(FormField, null), 'WEC-FORM-FIELD', ''],
-    ];
-    for (const [ui, tag, text] of cases) {
-      const el = renderIsolated(ui);
-      expect(el.tagName, tag).toBe(tag);
-      if (text) {
-        expect(el.textContent, tag).toContain(text);
-      }
-    }
+  it('Button merender <wec-button> dengan konten slot', () => {
+    const el = renderIsolated(React.createElement(Button, null, 'Ganti Nomor'));
+    expect(el.tagName).toBe('WEC-BUTTON');
+    expect(el.textContent).toContain('Ganti Nomor');
   });
 });
