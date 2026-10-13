@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <title>E2E — wec-ui fase 1</title>
+    <link rel="stylesheet" href="/tokens.css" />
+    <script type="module" src="/src/index.ts"></script>
+  </head>
+  <body>
+    <wec-button id="btn-primary">Klik saya</wec-button>
+    <wec-button id="btn-disabled" disabled>Nonaktif</wec-button>
+    <wec-button id="btn-loading" loading>Memproses</wec-button>
+
+    <wec-input id="input-basic" placeholder="Ketik di sini"></wec-input>
+    <wec-input id="input-disabled" disabled></wec-input>
+    <wec-input id="input-invalid" invalid accessible-name="Input invalid"></wec-input>
+
+    <wec-checkbox id="check-basic">Setuju</wec-checkbox>
+    <wec-checkbox id="check-disabled" disabled>Nonaktif</wec-checkbox>
+
+    <wec-form-field id="field-email" label="Email" hint="Gunakan email kantor">
+      <wec-input id="field-email-input" type="email"></wec-input>
+    </wec-form-field>
+    <wec-form-field id="field-error" label="Nama" error="Nama wajib diisi">
+      <wec-input id="field-error-input"></wec-input>
+    </wec-form-field>
+
+    <wec-badge id="badge-brand" variant="brand">Baru</wec-badge>
+
+    <wec-icon id="icon-check" name="check"></wec-icon>
+
+    <wec-card id="card-basic">
+      <h3 slot="header">Judul</h3>
+      <p>Isi kartu</p>
+      <div slot="footer">Kaki kartu</div>
+    </wec-card>
+  </body>
+</html>

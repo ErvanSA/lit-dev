@@ -14,12 +14,56 @@
             "name": "*",
             "module": "src/components/atoms/index.js"
           }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/molecules/index.js"
+          }
         }
       ]
     },
     {
       "kind": "javascript-module",
+      "path": "src/define/wec-badge.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/define/wec-button.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-card.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-checkbox.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-form-field.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-icon.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/define/wec-input.ts",
       "declarations": [],
       "exports": []
     },
@@ -33,6 +77,22 @@
           "name": "*",
           "declaration": {
             "name": "*",
+            "module": "src/components/atoms/icon/registry.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-badge/wec-badge.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
             "module": "src/components/atoms/wec-button/wec-button.js"
           }
         },
@@ -41,7 +101,46 @@
           "name": "*",
           "declaration": {
             "name": "*",
-            "module": "src/components/atoms/icon/registry.js"
+            "module": "src/components/atoms/wec-checkbox/wec-checkbox.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-icon/wec-icon.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/atoms/wec-input/wec-input.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/molecules/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/molecules/wec-card/wec-card.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/molecules/wec-form-field/wec-form-field.js"
           }
         }
       ]
@@ -67,6 +166,91 @@
           "declaration": {
             "name": "icons",
             "module": "src/components/atoms/icon/registry.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-badge/wec-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Label status kecil (badge/pill).",
+          "name": "WecBadge",
+          "cssProperties": [
+            {
+              "description": "Radius pill.",
+              "name": "--wec-radius-full"
+            },
+            {
+              "description": "Warna varian `neutral`.",
+              "name": "--wec-color-neutral-*"
+            },
+            {
+              "description": "Warna varian `success`/`warning`/`danger`.",
+              "name": "--wec-color-semantic-*"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Elemen `<span>` internal.",
+              "name": "badge"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Teks badge.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "WecBadgeVariant"
+              },
+              "default": "'neutral'",
+              "description": "Varian warna badge.",
+              "attribute": "variant",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "WecBadgeVariant"
+              },
+              "default": "'neutral'",
+              "description": "Varian warna badge.",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecBadge",
+          "declaration": {
+            "name": "WecBadge",
+            "module": "src/components/atoms/wec-badge/wec-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-badge",
+          "declaration": {
+            "name": "WecBadge",
+            "module": "src/components/atoms/wec-badge/wec-badge.ts"
           }
         }
       ]
@@ -107,6 +291,14 @@
             {
               "description": "Konten tombol (teks, atau ikon + teks).",
               "name": ""
+            },
+            {
+              "description": "Ikon di awal (sebelum teks).",
+              "name": "icon-start"
+            },
+            {
+              "description": "Ikon di akhir (setelah teks).",
+              "name": "icon-end"
             }
           ],
           "members": [
@@ -142,6 +334,43 @@
               "description": "Nonaktifkan interaksi tombol.",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tampilkan spinner dan tahan interaksi (proses berjalan).",
+              "attribute": "loading",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Fokus ke `<button>` internal (dipakai label luar / programatik)."
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "field",
+              "name": "_button",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private"
             }
           ],
           "events": [
@@ -177,6 +406,15 @@
               "default": "false",
               "description": "Nonaktifkan interaksi tombol.",
               "fieldName": "disabled"
+            },
+            {
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tampilkan spinner dan tahan interaksi (proses berjalan).",
+              "fieldName": "loading"
             }
           ],
           "superclass": {
@@ -202,6 +440,981 @@
           "declaration": {
             "name": "WecButton",
             "module": "src/components/atoms/wec-button/wec-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-checkbox/wec-checkbox.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Checkbox dengan label dari slot.",
+          "name": "WecCheckbox",
+          "cssProperties": [
+            {
+              "description": "Warna saat tercentang.",
+              "name": "--wec-color-brand-primary"
+            },
+            {
+              "description": "Ukuran kotak checkbox.",
+              "name": "--wec-size-icon-sm"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Elemen `<label>` pembungkus.",
+              "name": "label"
+            },
+            {
+              "description": "Checkbox visual (`appearance: none` pada input asli).",
+              "name": "box"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Teks label checkbox.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Status tercentang.",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan checkbox.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai status tidak valid (border merah + `aria-invalid`).",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "description": "Nilai yang dilaporkan dalam detail event.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "accessibleName",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` bila slot label tidak dipakai.",
+              "attribute": "accessible-name"
+            },
+            {
+              "kind": "field",
+              "name": "labelledBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field` (id label)."
+            },
+            {
+              "kind": "field",
+              "name": "describedBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field` (id hint/error)."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Fokus ke checkbox internal."
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_input",
+              "type": {
+                "text": "HTMLInputElement"
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "wec-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Status berubah. detail: `{ checked, value }`."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Status tercentang.",
+              "fieldName": "checked"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan checkbox.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai status tidak valid (border merah + `aria-invalid`).",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "description": "Nilai yang dilaporkan dalam detail event.",
+              "fieldName": "value"
+            },
+            {
+              "name": "accessible-name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` bila slot label tidak dipakai.",
+              "fieldName": "accessibleName"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecCheckbox",
+          "declaration": {
+            "name": "WecCheckbox",
+            "module": "src/components/atoms/wec-checkbox/wec-checkbox.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-checkbox",
+          "declaration": {
+            "name": "WecCheckbox",
+            "module": "src/components/atoms/wec-checkbox/wec-checkbox.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-icon/wec-icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Ikon dari registry SVG internal (lihat `tools/icons`).\n\nSifatnya dekoratif secara default (`aria-hidden`); berikan prop `label`\nuntuk menjadikannya bergambar bermakna (`role=\"img\"`).",
+          "name": "WecIcon",
+          "cssProperties": [
+            {
+              "description": "Ukuran ikon `sm`.",
+              "name": "--wec-size-icon-sm"
+            },
+            {
+              "description": "Ukuran ikon `md` (default).",
+              "name": "--wec-size-icon-md"
+            },
+            {
+              "description": "Ukuran ikon `lg`.",
+              "name": "--wec-size-icon-lg"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Wadah `<span>` berisi markup SVG.",
+              "name": "icon"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "WecIconName | undefined"
+              },
+              "description": "Nama ikon di registry (hasil generator `tools/icons`).",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WecIconSize"
+              },
+              "default": "'md'",
+              "description": "Ukuran ikon (dipetakan ke token `--wec-size-icon-*`).",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Label aksesibilitas. Kosong = dekoratif.",
+              "attribute": "label"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "type": {
+                "text": "WecIconName | undefined"
+              },
+              "description": "Nama ikon di registry (hasil generator `tools/icons`).",
+              "fieldName": "name"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "WecIconSize"
+              },
+              "default": "'md'",
+              "description": "Ukuran ikon (dipetakan ke token `--wec-size-icon-*`).",
+              "fieldName": "size"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Label aksesibilitas. Kosong = dekoratif.",
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecIcon",
+          "declaration": {
+            "name": "WecIcon",
+            "module": "src/components/atoms/wec-icon/wec-icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-icon",
+          "declaration": {
+            "name": "WecIcon",
+            "module": "src/components/atoms/wec-icon/wec-icon.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/atoms/wec-input/wec-input.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Input teks satu baris.\n\nLabel, hint, dan error ditangani `wec-form-field`; bila dipakai tanpa\nform-field, berikan `accessible-name` untuk aksesibilitas.",
+          "name": "WecInput",
+          "cssProperties": [
+            {
+              "description": "Warna border (default/strong/focus).",
+              "name": "--wec-color-border-*"
+            },
+            {
+              "description": "Warna latar input.",
+              "name": "--wec-color-background-*"
+            },
+            {
+              "description": "Radius sudut.",
+              "name": "--wec-radius-md"
+            },
+            {
+              "description": "Padding internal.",
+              "name": "--wec-space-*"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Elemen `<input>` internal.",
+              "name": "input"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "WecInputType"
+              },
+              "default": "'text'",
+              "description": "Tipe input HTML.",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Nilai input.",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks placeholder.",
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan input.",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Mode baca-saja.",
+              "attribute": "readonly",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wajib diisi (validasi native).",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai status tidak valid (border merah + `aria-invalid`).",
+              "attribute": "invalid",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "accessibleName",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` untuk pemakaian tanpa `wec-form-field`.",
+              "attribute": "accessible-name"
+            },
+            {
+              "kind": "field",
+              "name": "labelledBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field` (id label)."
+            },
+            {
+              "kind": "field",
+              "name": "describedBy",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Diisi otomatis oleh `wec-form-field` (id hint/error)."
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "description": "Fokus ke `<input>` internal (dipakai label `wec-form-field`)."
+            },
+            {
+              "kind": "method",
+              "name": "blur"
+            },
+            {
+              "kind": "method",
+              "name": "_onInput",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onFocus",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onBlur",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_input",
+              "type": {
+                "text": "HTMLInputElement"
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "wec-input",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Nilai berubah saat mengetik. detail: `{ value }`."
+            },
+            {
+              "name": "wec-change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Nilai berubah dan commit (blur/enter). detail: `{ value }`."
+            },
+            {
+              "name": "wec-focus",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Input mendapat fokus."
+            },
+            {
+              "name": "wec-blur",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Input kehilangan fokus."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "WecInputType"
+              },
+              "default": "'text'",
+              "description": "Tipe input HTML.",
+              "fieldName": "type"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Nilai input.",
+              "fieldName": "value"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks placeholder.",
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Nonaktifkan input.",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Mode baca-saja.",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wajib diisi (validasi native).",
+              "fieldName": "required"
+            },
+            {
+              "name": "invalid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tandai status tidak valid (border merah + `aria-invalid`).",
+              "fieldName": "invalid"
+            },
+            {
+              "name": "accessible-name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "`aria-label` untuk pemakaian tanpa `wec-form-field`.",
+              "fieldName": "accessibleName"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-input",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecInput",
+          "declaration": {
+            "name": "WecInput",
+            "module": "src/components/atoms/wec-input/wec-input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-input",
+          "declaration": {
+            "name": "WecInput",
+            "module": "src/components/atoms/wec-input/wec-input.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/molecules/wec-card/wec-card.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Wadah konten (kartu) dengan slot `header`, default, dan `footer`.",
+          "name": "WecCard",
+          "cssProperties": [
+            {
+              "description": "Radius kartu.",
+              "name": "--wec-radius-lg"
+            },
+            {
+              "description": "Bayangan kartu.",
+              "name": "--wec-shadow-sm/md"
+            },
+            {
+              "description": "Warna border.",
+              "name": "--wec-color-border-subtle"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Wadah kartu.",
+              "name": "card"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Isi utama kartu.",
+              "name": ""
+            },
+            {
+              "description": "Judul kartu (heading dibawa konsumen, mis. `<h3>`).",
+              "name": "header"
+            },
+            {
+              "description": "Aksi/kaki kartu.",
+              "name": "footer"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tambah gaya hover/press untuk kartu yang bisa diklik.",
+              "attribute": "interactive",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tambah gaya hover/press untuk kartu yang bisa diklik.",
+              "fieldName": "interactive"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecCard",
+          "declaration": {
+            "name": "WecCard",
+            "module": "src/components/molecules/wec-card/wec-card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-card",
+          "declaration": {
+            "name": "WecCard",
+            "module": "src/components/molecules/wec-card/wec-card.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/molecules/wec-form-field/wec-form-field.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Pembungkus kontrol form: label + hint/error + slot kontrol.\n\nSecara otomatis menghubungkan `aria-labelledby`/`aria-describedby`\nke kontrol berslot (dukungan bawaan untuk komponen `wec-*`; kontrol\nnative dihubungkan via atribut `aria-*`).",
+          "name": "WecFormField",
+          "cssProperties": [
+            {
+              "description": "Warna teks hint/label.",
+              "name": "--wec-color-text-muted"
+            },
+            {
+              "description": "Warna teks error dan tanda wajib.",
+              "name": "--wec-color-semantic-danger"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "Elemen `<label>`.",
+              "name": "label"
+            },
+            {
+              "description": "Teks bantuan.",
+              "name": "hint"
+            },
+            {
+              "description": "Teks error (`role=\"alert\"`).",
+              "name": "error"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Kontrol form (`wec-input`, `wec-checkbox`, atau `<input>` native).",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks label.",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "hint",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks bantuan (tidak tampil bila `error` terisi).",
+              "attribute": "hint"
+            },
+            {
+              "kind": "field",
+              "name": "error",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks error (menggantikan hint, diumumkan screen reader).",
+              "attribute": "error"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tampilkan tanda bintang wajib.",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_labelId",
+              "privacy": "private",
+              "readonly": true,
+              "default": "`wec-form-field-label-${++instanceCount}`"
+            },
+            {
+              "kind": "field",
+              "name": "_hintId",
+              "privacy": "private",
+              "readonly": true,
+              "default": "`wec-form-field-hint-${instanceCount}`"
+            },
+            {
+              "kind": "field",
+              "name": "_errorId",
+              "privacy": "private",
+              "readonly": true,
+              "default": "`wec-form-field-error-${instanceCount}`"
+            },
+            {
+              "kind": "field",
+              "name": "_control",
+              "type": {
+                "text": "Element | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "_onSlotChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_wireControl",
+              "privacy": "private",
+              "description": "Hubungkan id label/hint/error ke kontrol berslot."
+            },
+            {
+              "kind": "method",
+              "name": "_focusControl",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks label.",
+              "fieldName": "label"
+            },
+            {
+              "name": "hint",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks bantuan (tidak tampil bila `error` terisi).",
+              "fieldName": "hint"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Teks error (menggantikan hint, diumumkan screen reader).",
+              "fieldName": "error"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Tampilkan tanda bintang wajib.",
+              "fieldName": "required"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wec-form-field",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WecFormField",
+          "declaration": {
+            "name": "WecFormField",
+            "module": "src/components/molecules/wec-form-field/wec-form-field.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wec-form-field",
+          "declaration": {
+            "name": "WecFormField",
+            "module": "src/components/molecules/wec-form-field/wec-form-field.ts"
           }
         }
       ]

@@ -9,17 +9,19 @@ lintas **Angular ≥ 18, React, Next.js ≥ 14 (App Router), dan Drupal 10/11**.
 
 ## Status
 
-🚧 **Fase 0 — Fondasi.** Scaffold monorepo, token desain, ikon, tooling, test, dan pipeline
-Storybook sudah siap. Komponen penuh (dengan docs React/Angular/Next/Drupal) diisi mulai
-**Fase 1** — lihat `PLAN.md` di root repo.
+✅ **Fase 0 — Fondasi** dan **Fase 1 — MVP** selesai. Komponen tersedia:
+`wec-button`, `wec-input`, `wec-checkbox`, `wec-icon`, `wec-badge` (atoms) dan
+`wec-form-field`, `wec-card` (molecules) — dengan wrapper `@wec-ui/react`,
+docs MDX per framework, dan test lengkap. Rencana lanjut: **Fase 2**
+(generator Angular, komponen lanjutan, audit a11y + visual regression).
 
 ## Struktur komponen
 
-| Level     | Komponen                                             | Status                                    |
-| --------- | ---------------------------------------------------- | ----------------------------------------- |
-| Atoms     | `wec-button`                                         | 🚧 validator pipeline (lengkap di Fase 1) |
-| Atoms     | `wec-input`, `wec-icon`, `wec-badge`, `wec-checkbox` | Fase 1                                    |
-| Molecules | `wec-form-field`, `wec-card`                         | Fase 1                                    |
+| Level     | Komponen                                                                  | Status    |
+| --------- | ------------------------------------------------------------------------- | --------- |
+| Atoms     | `wec-button`, `wec-input`, `wec-checkbox`, `wec-icon`, `wec-badge`        | ✅ Fase 1 |
+| Molecules | `wec-form-field`, `wec-card`                                              | ✅ Fase 1 |
+| Lanjutan  | `select`, `textarea`, `radio-group`, `switch`, `tabs`, `modal`, `tooltip` | Fase 2    |
 
 ## Tema (theming)
 

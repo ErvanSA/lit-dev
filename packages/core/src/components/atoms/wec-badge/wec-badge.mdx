@@ -1,0 +1,48 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as BadgeStories from './wec-badge.stories';
+
+<Meta of={BadgeStories} />
+
+# wec-badge
+
+Label status kecil berbentuk pill. Varian `neutral`/`brand`/`success`/
+`warning`/`danger` memetakan token warna semantik.
+
+<Canvas of={BadgeStories.Playground} />
+
+<ArgTypes of={BadgeStories.meta} />
+
+## React
+
+```tsx
+import { Badge } from '@wec-ui/react';
+
+<Badge variant="success">Aktif</Badge>
+<Badge variant="danger">Gagal</Badge>
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-badge.js';
+```
+
+```html
+<wec-badge variant="warning">Menunggu</wec-badge>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-badge.js:
+    type: module
+```
+
+```twig
+<wec-badge variant="brand">Baru</wec-badge>
+```

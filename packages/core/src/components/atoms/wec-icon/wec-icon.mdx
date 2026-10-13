@@ -1,0 +1,51 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as IconStories from './wec-icon.stories';
+
+<Meta of={IconStories} />
+
+# wec-icon
+
+Ikon dari registry SVG internal. Tambah ikon baru dengan meletakkan SVG di
+`tools/icons/svg/` lalu jalankan `pnpm build:icons`.
+
+Secara default dekoratif (`aria-hidden="true"`). Berikan prop `label` bila
+ikon menyampaikan makna (`role="img"`).
+
+<Canvas of={IconStories.Playground} />
+
+<ArgTypes of={IconStories.meta} />
+
+## React
+
+```tsx
+import { Icon } from '@wec-ui/react';
+
+<Icon name="check" size="md" />
+<Icon name="close" label="Tutup dialog" />
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-icon.js';
+```
+
+```html
+<wec-icon name="check" size="sm"></wec-icon>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-icon.js:
+    type: module
+```
+
+```twig
+<wec-icon name="check"></wec-icon>
+```

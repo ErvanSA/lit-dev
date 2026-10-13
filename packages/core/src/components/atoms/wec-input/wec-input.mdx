@@ -1,0 +1,64 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as InputStories from './wec-input.stories';
+
+<Meta of={InputStories} />
+
+# wec-input
+
+Input teks satu baris. Gunakan bersama `wec-form-field` untuk label + hint +
+error (wiring ARIA dilakukan otomatis).
+
+<Canvas of={InputStories.Playground} />
+
+<ArgTypes of={InputStories.meta} />
+
+## Events
+
+| Event        | detail      | Kapan                          |
+| ------------ | ----------- | ------------------------------ |
+| `wec-input`  | `{ value }` | Setiap perubahan saat mengetik |
+| `wec-change` | `{ value }` | Nilai commit (blur / enter)    |
+| `wec-focus`  | —           | Input mendapat fokus           |
+| `wec-blur`   | —           | Input kehilangan fokus         |
+
+## React
+
+```tsx
+import { Input } from '@wec-ui/react';
+
+export function Cari() {
+  return (
+    <Input
+      type="search"
+      placeholder="Cari…"
+      onWecInput={(e: CustomEvent<{ value: string }>) => console.log(e.detail.value)}
+    />
+  );
+}
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-input.js';
+```
+
+```html
+<wec-input type="email" placeholder="nama@perusahaan.co.id"></wec-input>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-input.js:
+    type: module
+```
+
+```twig
+<wec-input type="text" placeholder="{{ 'Cari…'|t }}"></wec-input>
+```

@@ -1,0 +1,55 @@
+import { Canvas, ArgTypes, Meta } from '@storybook/blocks';
+import * as CheckboxStories from './wec-checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# wec-checkbox
+
+Checkbox dengan label dari slot. Keyboard: `Space` untuk toggle, fokus
+mengikuti `:focus-visible` dengan ring token.
+
+<Canvas of={CheckboxStories.Playground} />
+
+<ArgTypes of={CheckboxStories.meta} />
+
+## Events
+
+| Event        | detail               | Kapan          |
+| ------------ | -------------------- | -------------- |
+| `wec-change` | `{ checked, value }` | Status berubah |
+
+## React
+
+```tsx
+import { Checkbox } from '@wec-ui/react';
+
+<Checkbox onWecChange={(e: CustomEvent<{ checked: boolean }>) => setAgree(e.detail.checked)}>
+  Setuju dengan syarat dan ketentuan
+</Checkbox>;
+```
+
+## Angular
+
+```ts
+import 'wec-ui/define/wec-checkbox.js';
+```
+
+```html
+<wec-checkbox (wec-change)="onChange($event)">Setuju</wec-checkbox>
+```
+
+## Next.js
+
+Sama dengan React — wrapper sudah `'use client'`.
+
+## Drupal 10/11
+
+```yaml
+js:
+  dist/define/wec-checkbox.js:
+    type: module
+```
+
+```twig
+<wec-checkbox>{{ 'Setuju dengan syarat'|t }}</wec-checkbox>
+```
