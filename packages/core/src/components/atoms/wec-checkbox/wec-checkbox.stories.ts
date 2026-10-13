@@ -3,7 +3,11 @@ import { html } from 'lit';
 import type { WecCheckbox } from './wec-checkbox.js';
 import './wec-checkbox.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecCheckbox> = {
   title: 'Atoms/wec-checkbox',
@@ -11,6 +15,9 @@ const meta: MetaWithDocs<WecCheckbox> = {
   tags: ['autodocs'],
   docs: {
     page: './wec-checkbox.mdx',
+  },
+  argTypes: {
+    'wec-change': { action: 'wec-change' },
   },
 };
 

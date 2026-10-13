@@ -3,7 +3,11 @@ import { html } from 'lit';
 import type { WecBadge } from './wec-badge.js';
 import './wec-badge.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecBadge> = {
   title: 'Atoms/wec-badge',

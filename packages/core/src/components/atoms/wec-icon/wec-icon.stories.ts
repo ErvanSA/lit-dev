@@ -3,7 +3,11 @@ import { html } from 'lit';
 import type { WecIcon } from './wec-icon.js';
 import './wec-icon.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecIcon> = {
   title: 'Atoms/wec-icon',

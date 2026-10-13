@@ -32,11 +32,10 @@ Generator wrapper **React** (`@wec-ui/react`) dari Custom Elements Manifest.
 
 ## Smoke test
 
-Wrapper diuji di **browser asli** (Playwright), bukan happy-dom — @lit/react
-mengandalkan layout effect yang tidak sepenuhnya didukung happy-dom. Alurnya:
+Wrapper diuji dengan unit test render (Vitest + happy-dom,
+`packages/react/tests/unit/wrapper.test.ts`) yang memverifikasi setiap wrapper
+merender custom element beserta konten slotnya.
 
-1. `pnpm build:react-smoke` — bundle entry `tests/e2e/manual.tsx` (esbuild)
-   menjadi `packages/core/tests/e2e/fixtures/react-bundle.js` (digenerate,
-   gitignored).
-2. `pnpm test:e2e` — spec `react-smoke.spec.ts` memuat
-   `fixtures/react-smoke.html` di Chromium dan memverifikasi props/event.
+Penerapan **props & event** oleh `@lit/react` tidak dapat diverifikasi di
+happy-dom (keterbatasan layout effect) — verifikasi event dilakukan lewat
+panel **Actions** di Storybook (browser asli) dan dokumentasi penggunaan.

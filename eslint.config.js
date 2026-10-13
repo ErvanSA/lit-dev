@@ -12,7 +12,6 @@ export default tseslint.config(
       '**/test-results/**',
       '**/playwright-report/**',
       '**/blob-report/**',
-      '**/fixtures/react-bundle.js',
       'packages/core/custom-elements.json',
     ],
   },

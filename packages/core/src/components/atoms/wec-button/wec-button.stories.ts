@@ -3,7 +3,11 @@ import { html } from 'lit';
 import type { WecButton } from './wec-button.js';
 import './wec-button.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecButton> = {
   title: 'Atoms/wec-button',
@@ -24,6 +28,7 @@ const meta: MetaWithDocs<WecButton> = {
   argTypes: {
     variant: { control: 'select', options: ['primary', 'secondary', 'ghost', 'danger'] },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    click: { action: 'click' },
   },
 };
 

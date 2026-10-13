@@ -5,7 +5,3 @@ pnpm-lock.yaml
 **/node_modules/
 packages/core/storybook-static/
 packages/core/custom-elements.json
-packages/core/tests/e2e/fixtures/react-bundle.js
-test-results/
-playwright-report/
-blob-report/

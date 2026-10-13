@@ -4,13 +4,9 @@ node_modules/
 # Build output
 packages/*/dist/
 packages/core/storybook-static/
-packages/core/tests/e2e/fixtures/react-bundle.js
 tokens/build/.*.tmp.css
 
 # Test & laporan
-test-results/
-playwright-report/
-blob-report/
 coverage/
 
 # Tooling

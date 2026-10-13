@@ -3,7 +3,11 @@ import { html } from 'lit';
 import type { WecCard } from './wec-card.js';
 import './wec-card.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecCard> = {
   title: 'Molecules/wec-card',
@@ -11,6 +15,9 @@ const meta: MetaWithDocs<WecCard> = {
   tags: ['autodocs'],
   docs: {
     page: './wec-card.mdx',
+  },
+  argTypes: {
+    click: { action: 'click' },
   },
 };
 

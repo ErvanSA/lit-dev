@@ -4,7 +4,11 @@ import type { WecFormField } from './wec-form-field.js';
 import './wec-form-field.js';
 import '../../atoms/wec-input/wec-input.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecFormField> = {
   title: 'Molecules/wec-form-field',

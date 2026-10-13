@@ -3,7 +3,11 @@ import { html } from 'lit';
 import type { WecInput } from './wec-input.js';
 import './wec-input.js';
 
-type MetaWithDocs<T> = Meta<T> & { docs?: { page?: string } };
+type MetaWithDocs<T> = Omit<Meta<T>, 'argTypes'> & {
+  docs?: { page?: string };
+  /** argTypes longgar: props komponen + nama event untuk addon-actions. */
+  argTypes?: Record<string, Record<string, unknown>>;
+};
 
 const meta: MetaWithDocs<WecInput> = {
   title: 'Atoms/wec-input',
@@ -17,6 +21,10 @@ const meta: MetaWithDocs<WecInput> = {
       control: 'select',
       options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'],
     },
+    'wec-input': { action: 'wec-input' },
+    'wec-change': { action: 'wec-change' },
+    'wec-focus': { action: 'wec-focus' },
+    'wec-blur': { action: 'wec-blur' },
   },
 };
 

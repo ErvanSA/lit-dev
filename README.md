@@ -8,9 +8,10 @@ Drupal 10/11**. Rencana lengkap: lihat [`PLAN.md`](./PLAN.md).
 
 **Atoms**: `wec-button`, `wec-input`, `wec-icon`, `wec-badge`, `wec-checkbox` ·
 **Molecules**: `wec-form-field`, `wec-card` — lengkap dengan docs (Storybook MDX),
-test unit (Vitest) + browser (Playwright), dan wrapper `@wec-ui/react` yang
-digenerate otomatis dari Custom Elements Manifest. Fase 0 (fondasi monorepo,
-token, tooling) selesai sebelumnya.
+test unit (Vitest), dan wrapper `@wec-ui/react` yang digenerate otomatis dari
+Custom Elements Manifest. Verifikasi interaksi/event komponen memakai panel
+**Actions** di Storybook. Fase 0 (fondasi monorepo, token, tooling) selesai
+sebelumnya.
 
 ## Struktur
 
@@ -36,9 +37,7 @@ wec-ui/
 | `pnpm install`      | Pasang dependensi semua workspace                       |
 | `pnpm dev`          | Jalankan Storybook (`localhost:6006`)                   |
 | `pnpm build`        | Build tokens → ikon → core (ESM + CEM) → wrapper React  |
-| `pnpm test`         | Unit (Vitest) + e2e (Playwright)                        |
-| `pnpm test:unit`    | Unit test saja                                          |
-| `pnpm test:e2e`     | Browser test saja (auto-start vite dev server)          |
+| `pnpm test`         | Unit test (Vitest: node + happy-dom)                    |
 | `pnpm lint`         | ESLint                                                  |
 | `pnpm format`       | Prettier (tulis)                                        |
 | `pnpm typecheck`    | `tsc --noEmit` semua package                            |
@@ -47,7 +46,7 @@ wec-ui/
 | `pnpm gen:wrappers` | Regenerate `@wec-ui/react` dari `custom-elements.json`  |
 | `pnpm changeset`    | Catat perubahan (changelog internal, fixed version)     |
 
-> Pertama kali menjalankan `test:e2e`: `pnpm exec playwright install chromium`.
+> Interaksi & event komponen diverifikasi lewat panel **Actions** di Storybook.
 
 ## Konsumsi cepat
 
