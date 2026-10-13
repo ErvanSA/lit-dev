@@ -28,7 +28,7 @@ export class WecButton extends LitElement {
   /** Nonaktifkan interaksi tombol. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
-  static override styles = css`
+  static readonly styles = css`
     :host {
       display: inline-block;
     }
@@ -111,7 +111,7 @@ export class WecButton extends LitElement {
   }
 
   @query('button')
-  private _button!: HTMLButtonElement;
+  private readonly _button!: HTMLButtonElement;
 }
 
 declare global {

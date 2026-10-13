@@ -5,6 +5,7 @@ node_modules/
 packages/*/dist/
 packages/drupal/
 packages/core/storybook-static/
+releases/
 tokens/build/.*.tmp.css
 
 # Test & laporan

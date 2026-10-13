@@ -1,0 +1,128 @@
+/*
+ * DIGENERATE dari tokens/tokens.json (Style Dictionary) — jangan edit manual.
+ * Jalankan ulang: pnpm build:tokens
+ *
+ * Light theme : :root, :host (default)
+ * Dark theme  : [data-theme="dark"]
+ */
+:root,
+:host {
+  --wec-color-brand-primary: #ff0025;
+  --wec-color-brand-primary-hover: #ed0226;
+  --wec-color-brand-on-primary: #ffffff;
+  --wec-color-brand-primary-tint: #fcf4f4;
+  --wec-color-neutral-0: #ffffff;
+  --wec-color-neutral-10: #fafafb;
+  --wec-color-neutral-20: #edecf0;
+  --wec-color-neutral-30: #e9e8ed;
+  --wec-color-neutral-40: #cccfd3;
+  --wec-color-neutral-50: #79838d;
+  --wec-color-neutral-60: #99a0a7;
+  --wec-color-neutral-70: #66707a;
+  --wec-color-neutral-80: #5f6368;
+  --wec-color-neutral-90: #4e5764;
+  --wec-color-neutral-100: #353941;
+  --wec-color-neutral-1000: #000000;
+  --wec-color-text-default: #000000;
+  --wec-color-text-muted: #79838d;
+  --wec-color-text-disabled: #99a0a7;
+  --wec-color-text-on-color: #ffffff;
+  --wec-color-background-default: #ffffff;
+  --wec-color-background-subtle: #fafafb;
+  --wec-color-background-subtle-hover: #f1f2f4;
+  --wec-color-background-disabled: #e9e8ed;
+  --wec-color-background-inverse: #001a41;
+  --wec-color-border-default: #cccfd3;
+  --wec-color-border-strong: #99a0a7;
+  --wec-color-border-subtle: #dae0e9;
+  --wec-color-border-focus: #0f78cb;
+  --wec-color-semantic-success: #008e53;
+  --wec-color-semantic-on-success: #ffffff;
+  --wec-color-semantic-warning: #fda22b;
+  --wec-color-semantic-on-warning: #000000;
+  --wec-color-semantic-danger: #bc1d42;
+  --wec-color-semantic-danger-hover: #b90024;
+  --wec-color-semantic-on-danger: #ffffff;
+  --wec-color-semantic-info: #0050ae;
+  --wec-color-semantic-on-info: #ffffff;
+  --wec-size-control-height: 4.125rem;
+  --wec-space-1: 0.25rem;
+  --wec-space-2: 0.5rem;
+  --wec-space-3: 0.75rem;
+  --wec-space-4: 1rem;
+  --wec-space-5: 1.25rem;
+  --wec-space-6: 1.5rem;
+  --wec-space-8: 2rem;
+  --wec-space-10: 2.5rem;
+  --wec-space-12: 3rem;
+  --wec-space-16: 4rem;
+  --wec-radius-sm: 0.25rem;
+  --wec-radius-md: 0.5rem;
+  --wec-radius-lg: 0.75rem;
+  --wec-radius-full: 9999px;
+  --wec-font-family-base: 'poppins-regular', Arial, sans-serif;
+  --wec-font-family-medium: 'poppins-medium', Arial, sans-serif;
+  --wec-font-family-semibold: 'poppins-semibold', Arial, sans-serif;
+  --wec-font-family-bold: 'poppins-bold', Arial, sans-serif;
+  --wec-font-family-extrabold: 'poppins-extra-bold', Arial, sans-serif;
+  --wec-font-family-light: 'poppins-light', Arial, sans-serif;
+  --wec-font-family-batik: 'telkomsel-batik-bold', Arial, sans-serif;
+  --wec-font-family-batik-regular: 'telkomsel-batik-regular', Arial, sans-serif;
+  --wec-font-size-xs: 0.75rem;
+  --wec-font-size-sm: 0.875rem;
+  --wec-font-size-md: 1rem;
+  --wec-font-size-lg: 1.125rem;
+  --wec-font-size-xl: 1.5rem;
+  --wec-font-size-xxl: 2rem;
+  --wec-font-line-height-tight: 1.25;
+  --wec-font-line-height-normal: 1.5;
+  --wec-font-line-height-relaxed: 1.75;
+  --wec-shadow-sm: 0 1px 2px rgba(0, 26, 65, 0.1);
+  --wec-shadow-md: 0 4px 12px rgba(0, 26, 65, 0.12);
+  --wec-shadow-lg: 0 12px 32px rgba(0, 26, 65, 0.16);
+  --wec-z-dropdown: 1000;
+  --wec-z-sticky: 1020;
+  --wec-z-modal: 1050;
+  --wec-z-tooltip: 1080;
+}
+
+[data-theme='dark'] {
+  --wec-color-brand-primary: #ff0025;
+  --wec-color-brand-primary-hover: #ed0226;
+  --wec-color-brand-on-primary: #ffffff;
+  --wec-color-brand-primary-tint: #3d000c;
+  --wec-color-neutral-0: #001122;
+  --wec-color-neutral-10: #0a1626;
+  --wec-color-neutral-20: #12203a;
+  --wec-color-neutral-30: #1b2b47;
+  --wec-color-neutral-40: #334867;
+  --wec-color-neutral-50: #5f6368;
+  --wec-color-neutral-60: #99a0a7;
+  --wec-color-neutral-70: #b3bac6;
+  --wec-color-neutral-80: #cccfd3;
+  --wec-color-neutral-90: #edecf0;
+  --wec-color-neutral-100: #f7f7f7;
+  --wec-color-neutral-1000: #ffffff;
+  --wec-color-text-default: #ffffff;
+  --wec-color-text-muted: #99a0a7;
+  --wec-color-text-disabled: #66707a;
+  --wec-color-text-on-color: #001122;
+  --wec-color-background-default: #001122;
+  --wec-color-background-subtle: #001a41;
+  --wec-color-background-subtle-hover: #334867;
+  --wec-color-background-disabled: #e9e8ed;
+  --wec-color-background-inverse: #f7f7f7;
+  --wec-color-border-default: #334867;
+  --wec-color-border-strong: #66707a;
+  --wec-color-border-subtle: #1b2b47;
+  --wec-color-border-focus: #1a73e8;
+  --wec-color-semantic-success: #1d9940;
+  --wec-color-semantic-on-success: #ffffff;
+  --wec-color-semantic-warning: #fda22b;
+  --wec-color-semantic-on-warning: #000000;
+  --wec-color-semantic-danger: #bc1d42;
+  --wec-color-semantic-danger-hover: #ed0226;
+  --wec-color-semantic-on-danger: #ffffff;
+  --wec-color-semantic-info: #1a73e8;
+  --wec-color-semantic-on-info: #ffffff;
+}

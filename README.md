@@ -90,6 +90,32 @@ Theming hanya via CSS custom properties berprefix `--wec-` (muat
 `tokens/build/tokens.css` + `tokens/build/fonts.css` sekali per aplikasi).
 Dark mode: set `data-theme="dark"` pada `<html>` atau pembungkus aplikasi.
 
+## Konsumsi via tarball lokal (repo lain)
+
+Untuk testing package di repo React/Angular lain tanpa registry:
+
+```powershell
+# 1. Build + pack semua (hasil di releases/ + releases/INSTALL.md)
+pnpm pack:all
+
+# 2. Di repo konsumen — aktifkan override (sekali), pnpm 12 baca dari pnpm-workspace.yaml:
+#    overrides:
+#      wec-ui: file:C:/Users/Ervan/Documents/Job/lit/wec-ui/releases/wec-ui-0.3.0.tgz
+
+# 3. Install kedua tarball dalam SATU perintah (core dulu + wrapper):
+pnpm add C:\...\releases\wec-ui-0.3.0.tgz C:\...\releases\wec-ui-react-0.3.0.tgz
+
+# 4. Muat di entry aplikasi:
+import 'wec-ui/tokens.css';
+import 'wec-ui/fonts.css';
+import { Button } from '@wec-ui/react';
+
+# 5. Saat ada perubahan: pnpm pack:all lagi → pnpm add <tgz> --force
+```
+
+Detail lengkap + gotcha (override wajib, urutan, direct dep) auto-generated di
+`releases/INSTALL.md` setiap `pnpm pack:all`.
+
 ## Alur kerja komponen baru (ringkas)
 
 1. Buat folder komponen di `packages/core/src/components/{atoms|molecules}/<nama>/`.

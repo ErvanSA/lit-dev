@@ -16,6 +16,7 @@
     "gen:wrappers": "node tools/generate-wrappers/generate.mjs",
     "gen:wrappers:angular": "node tools/generate-wrappers/generate-angular.mjs",
     "package:drupal": "node tools/package-drupal/package.mjs",
+    "pack:all": "node tools/pack-all/pack.mjs",
     "build:storybook": "pnpm --filter wec-ui build:storybook",
     "test": "vitest run",
     "lint": "eslint .",

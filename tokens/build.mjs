@@ -8,7 +8,7 @@
  * Jalankan: pnpm build:tokens (dari root repo).
  */
 import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import StyleDictionary from 'style-dictionary';
 
@@ -102,4 +102,14 @@ const faces = FAMILIES.map(
 const fontsCss = `${HEADER}/* Font brand Telkomsel — berkas di tokens/fonts (disalin ke build/fonts). */\n\n${faces}\n`;
 writeFileSync(join(buildDir, 'fonts.css'), fontsCss);
 
+// --- Sinkron ke paket core (untuk konsumsi tarball lintas repo) ---
+const coreDir = resolve(here, '../packages/core');
+mkdirSync(join(coreDir, 'fonts'), { recursive: true });
+cpSync(join(buildDir, 'tokens.css'), join(coreDir, 'tokens.css'));
+cpSync(join(buildDir, 'fonts.css'), join(coreDir, 'fonts.css'));
+for (const file of readdirSync(fontsOutDir)) {
+  cpSync(join(fontsOutDir, file), join(coreDir, 'fonts', file));
+}
+
 console.log('✔ tokens/build/tokens.css + fonts.css digenerate (light + dark)');
+console.log('✔ tokens.css + fonts.css + fonts disinkron ke packages/core');

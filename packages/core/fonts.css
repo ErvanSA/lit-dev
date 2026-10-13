@@ -1,0 +1,98 @@
+/*
+ * DIGENERATE dari tokens/tokens.json (Style Dictionary) — jangan edit manual.
+ * Jalankan ulang: pnpm build:tokens
+ *
+ * Light theme : :root, :host (default)
+ * Dark theme  : [data-theme="dark"]
+ */
+/* Font brand Telkomsel — berkas di tokens/fonts (disalin ke build/fonts). */
+
+@font-face {
+  font-family: 'poppins-bold';
+  src:
+    url('fonts/poppins-bold.woff2') format('woff2'),
+    url('fonts/poppins-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-semibold';
+  src:
+    url('fonts/poppins-semibold.woff2') format('woff2'),
+    url('fonts/poppins-semibold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-medium';
+  src:
+    url('fonts/poppins-medium.woff2') format('woff2'),
+    url('fonts/poppins-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-regular';
+  src:
+    url('fonts/poppins-regular.woff2') format('woff2'),
+    url('fonts/poppins-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-light';
+  src:
+    url('fonts/poppins-light.woff2') format('woff2'),
+    url('fonts/poppins-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-extra-bold';
+  src:
+    url('fonts/poppins-extra-bold.woff2') format('woff2'),
+    url('fonts/poppins-extra-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-thin';
+  src:
+    url('fonts/poppins-thin.woff2') format('woff2'),
+    url('fonts/poppins-thin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'telkomsel-batik-bold';
+  src:
+    url('fonts/telkomsel-batik-bold.woff2') format('woff2'),
+    url('fonts/telkomsel-batik-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'telkomsel-batik-regular';
+  src:
+    url('fonts/telkomsel-batik-regular.woff2') format('woff2'),
+    url('fonts/telkomsel-batik-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

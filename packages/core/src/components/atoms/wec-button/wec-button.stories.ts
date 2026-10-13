@@ -28,7 +28,7 @@ type Story = StoryObj<WecButton>;
 export const Playground: Story = {
   args: {
     variant: 'primary',
-    disabled: false,
+    disabled: true,
   },
   render: (args) => html`
     <wec-button variant=${args.variant} ?disabled=${args.disabled}>Ganti Nomor</wec-button>
